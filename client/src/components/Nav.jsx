@@ -13,7 +13,7 @@ function Nav() {
   };
 
   return (
-    <Router>
+    // <Router>
       <div>
         <header>
           <button onClick={handleMenuToggle}>☰</button>
@@ -22,14 +22,14 @@ function Nav() {
           <nav>
             <ul>
               <li>
-                <Link to="/" onClick={handleMenuToggle}>
+                <Link to="/musclegroup" onClick={handleMenuToggle}>
                   Home
                 </Link>
               </li>
 
               <li>
                 <Link to="/favorites" onClick={handleMenuToggle}>
-                  Existing Workouts
+                  Favorites
                 </Link>
               </li>
             </ul>
@@ -42,7 +42,7 @@ function Nav() {
           {/* </Routes> */}
         </main>
       </div>
-    </Router>
+    // </Router>
   );
 }
 
