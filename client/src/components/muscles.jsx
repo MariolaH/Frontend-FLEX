@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import Nav from "./Nav";
 
 
 const BASE_URL =
@@ -8,6 +9,8 @@ const BASE_URL =
 function Muscles() {
 
     const [muscle, setMuscle] = useState([]);
+    const [exercise, setExercise] = useState([]);
+    const [selectMuscle, setSelectMuscle] = useState("");
 
     useEffect(() => {
       const getMuscle = async () => {
@@ -17,18 +20,52 @@ function Muscles() {
           method: "get",
         };
         let response = await axios.request(config);
-        console.log(response);
+    
         setMuscle(response.data);
-        console.log(response.data);
+       
       }
       getMuscle();
     }, []);
+
+
+      useEffect(() => {
+        const getExercise = async () => {
+          if (selectMuscle !== "") {
+          let config = {
+            url: "/exerciselist/",
+            baseURL: BASE_URL,
+            method: "get",
+          };
+          let response = await axios.request(config);
+          setExercise(response.data);
+          }
+        };
+        getExercise();
+      }, [selectMuscle]);
+
+      const handleMuscleGroupClick = (muscle) => {
+        setSelectMuscle(muscle);
+      };
    
 
   return (
-    <div>
-      {muscle.map((g) => <h3> {g.name} </h3>)}
-    </div>
+    <>
+      <Nav />
+      {muscle.map((muscle) => (
+        <button
+          key={muscle.id}
+          onClick={() => handleMuscleGroupClick(muscle.name)}
+        >
+          {" "}
+          <h3> {muscle.name} </h3>{" "}
+        </button>
+      ))}
+
+     
+      {exercise.map((exercise) => (
+        <p> {exercise.name} </p>
+      ))}
+    </>
   );
 }
 

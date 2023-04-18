@@ -1,9 +1,10 @@
 import Home from "./components/Home";
 import Login from "./components/Login";
-// import Nav from "./components/Nav";
 import Favorites from './components/Favorites'
 import { Routes, Route } from "react-router-dom";
 import Muscles from './components/muscles'
+import Main from "./components/Main";
+import "./style/style.css"
 
 function App() {
   return (
@@ -12,9 +13,11 @@ function App() {
     //   <h1>Hello</h1>
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/login" element={<Login />} />
+      <Route path="/main" element={<Main />} />
       <Route path="/login" element={<Favorites />} />
       <Route path="/login" element={<Muscles />} />
+      <Route path="/exercises" element={<Muscles />} />
+      <Route path="/favorites" element={<Favorites />} />
     </Routes>
     // </>
   );

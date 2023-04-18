@@ -22,7 +22,7 @@ function Nav() {
           <nav>
             <ul>
               <li>
-                <Link to="/musclegroup" onClick={handleMenuToggle}>
+                <Link to="/main" onClick={handleMenuToggle}>
                   Home
                 </Link>
               </li>

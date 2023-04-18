@@ -22,11 +22,11 @@ const Register = () => {
       [key]: value,
     });
   };
-
+  
   const handleRegister = (e) => {
     e.preventDefault();
     AuthService.register(user);
-    navigate("/");
+    navigate("/home");
   };
 
   return (
@@ -98,7 +98,7 @@ const Register = () => {
         <input
           type="submit"
           value="Register"
-          disabled={
+          disable={
             user.password &&
             user.password.length >= 8 &&
             user.password === user.passwordConf &&
