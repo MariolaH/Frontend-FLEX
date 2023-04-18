@@ -16,7 +16,7 @@ function Favorites() {
         method: "get",
       };
       let response = await axios.request(config);
-      console.log(response);
+      // console.log(response);
       setFavorite(response.data);
       console.log(response.data);
     };
@@ -25,9 +25,13 @@ function Favorites() {
 
   return (
     <div>
+
+      
       <Nav />
       {favorite.map((g) => (
-        <h3> {g.name} </h3>
+        <h3>
+          {g.name}
+        </h3>
       ))}
     </div>
   );
