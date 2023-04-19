@@ -8,6 +8,7 @@ function Muscles() {
   const [selectMuscle, setSelectMuscle] = useState("");
   const [selectedExercises, setSelectedExercises] = useState([]);
   const [workoutName, setWorkoutName] = useState("");
+  // const [remove, setRemove]=useState([])
 
   useEffect(() => {
     const getMuscle = async () => {
@@ -40,7 +41,7 @@ function Muscles() {
       method: "post",
       data: {
         name: workoutName,
-        exercises: selectedExercises,
+        exercises: [],
       },
     };
     await request(config);
@@ -66,6 +67,7 @@ function Muscles() {
   const handleWorkoutNameChange = (event) => {
     setWorkoutName(event.target.value);
   };
+
 
   return (
     <>
@@ -96,7 +98,7 @@ function Muscles() {
 
       {selectedExercises.map((exercise) => (
         <div key={exercise.id}>
-          <p>{exercise.name}</p>
+          <button>{exercise.name}</button>
         </div>
       ))}
       <div>

@@ -18,6 +18,7 @@ function App() {
       <Route path="/login" element={<Muscles />} />
       <Route path="/exercises" element={<Muscles />} />
       <Route path="/favorites" element={<Favorites />} />
+      <Route path="/new" element={<Muscles />} />
     </Routes>
     // </>
   );

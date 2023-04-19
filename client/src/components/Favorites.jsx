@@ -26,8 +26,11 @@ function Favorites() {
     <div>
       <Nav />
       {favorite.map((g) => (
-        <h3>{g.name}</h3>
-      ))}
+        <button>
+         <h3>{g.name}</h3>
+        </button>
+      ))}{" "}
+    
     </div>
   );
 }
