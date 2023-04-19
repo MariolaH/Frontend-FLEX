@@ -64,6 +64,12 @@ function Muscles() {
     ]);
   };
 
+  const RemoveExercise = (remove) => {
+    setSelectedExercises((prevExercises) =>
+      prevExercises.filter((exercise) => exercise.id !== remove)
+    );
+  };
+
   const handleWorkoutNameChange = (event) => {
     setWorkoutName(event.target.value);
   };
@@ -98,7 +104,7 @@ function Muscles() {
 
       {selectedExercises.map((exercise) => (
         <div key={exercise.id}>
-          <button>{exercise.name}</button>
+          <button onClick={() => RemoveExercise(exercise.id)}>{exercise.name}</button>
         </div>
       ))}
       <div>
