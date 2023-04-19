@@ -1,9 +1,6 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
+import request from '../services/api.request';
 import Nav from "./Nav";
-
-const BASE_URL =
-  "https://8000-mariolah-backendflex-x1j83bg0m41.ws-us94.gitpod.io/api/";
 
 function Muscles() {
   const [muscle, setMuscle] = useState([]);
@@ -16,10 +13,9 @@ function Muscles() {
     const getMuscle = async () => {
       let config = {
         url: "/musclegroup/",
-        baseURL: BASE_URL,
         method: "get",
       };
-      let response = await axios.request(config);
+      let response = await request(config);
 
       setMuscle(response.data);
     };
@@ -28,29 +24,29 @@ function Muscles() {
     const getExercise = async () => {
       let config = {
         url: "/exerciselist/",
-        baseURL: BASE_URL,
         method: "get",
       };
-      let response = await axios.request(config);
+      let response = await request(config);
       setExercise(response.data);
     };
     getExercise();
   }, []);
 
-  // async function handleSaveWorkout() {
-  //   let config = {
-  //     url: "/workout/",
-  //     baseURL: BASE_URL,
-  //     method: "post",
-  //     data: {
-  //       name: nameRef.current.value,
-  //       biography: bioRef.current.value,
-  //       img: imgUrlRef.current.value,
-  //     },
-  //   };
-  //   let response = await axios.request(config);
-  //   setArtist([response.data, ...artist]);
-  // }
+
+  const handleSaveWorkout = async () => {
+    console.log(selectedExercises);
+    let config = {
+      url: "/workout/",
+      method: "post",
+      data: {
+        name: workoutName,
+        exercises: selectedExercises,
+      },
+    };
+    await request(config);
+    setWorkoutName("");
+    setSelectedExercises([]);
+  };
 
   const handleMuscleGroupClick = (muscle) => {
     setSelectMuscle(muscle);
@@ -59,20 +55,17 @@ function Muscles() {
   const handleExerciseClick = (exercise) => {
     setSelectedExercises((prevExercises) => [
       ...prevExercises,
-      { name: exercise.name, id: exercise.id },
+      {
+        name: exercise.name,
+        id: exercise.id,
+        muscles: [{ name: selectMuscle }],
+      },
     ]);
   };
 
-    const handleSaveWorkout = async () => {
-      const workout = { name: workoutName, exercises: selectedExercises };
-      await axios.post("/workout/");
-      setWorkoutName("");
-      setSelectedExercises([]);
-    };
-
-    const handleWorkoutNameChange = (event) => {
-      setWorkoutName(event.target.value);
-    };
+  const handleWorkoutNameChange = (event) => {
+    setWorkoutName(event.target.value);
+  };
 
   return (
     <>
@@ -89,18 +82,23 @@ function Muscles() {
         </button>
       ))}
 
-      
-      <h3>Selected exercises:</h3>
+      <h3>SELECT A EXERCISE</h3>
       {exercise
         .filter((e) => e.muscles.some((m) => m.name === selectMuscle))
         .map((exercise) => (
-          <button>
-            <p key={exercise.id} onClick={() => handleExerciseClick(exercise)}>
+          <button key={exercise.id}>
+            <p onClick={() => handleExerciseClick(exercise)}>
               {" "}
               {exercise.name}{" "}
             </p>{" "}
           </button>
         ))}
+
+      {selectedExercises.map((exercise) => (
+        <div key={exercise.id}>
+          <p>{exercise.name}</p>
+        </div>
+      ))}
       <div>
         <label htmlFor="workout-name">Workout Name:</label>
         <input
@@ -109,13 +107,8 @@ function Muscles() {
           name="workout-name"
           value={workoutName}
           onChange={handleWorkoutNameChange}
-          />
+        />
         <button onClick={handleSaveWorkout}>Save Workout</button>
-        {selectedExercises.map((exercise) => (
-          <div key={exercise.id}>
-            <p>{exercise.name}</p>
-          </div>
-        ))}
       </div>
     </>
   );

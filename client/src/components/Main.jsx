@@ -4,10 +4,11 @@ function Main() {
   return (
     <>
       <Link to="/exercises" className="btn btn-outline-dark button btn-lg">
-        NEW WORKOUT
+        <button> NEW WORKOUT </button>
       </Link>
+     
       <Link to="/favorites" className="btn btn-outline-dark button btn-lg">
-        FAVORITE
+        <button> FAVORITE </button>
       </Link>
     </>
   );
