@@ -27,34 +27,35 @@ function Favorites() {
         method: "delete",
       };
       let response = await request(config);
-      setFavorite(response.data);
+      setFavorite(favorite.filter(item => item.id !== favId))
+      // setFavorite(response.data);
     };
- 
- 
 
-  // function deleteItem(favorites){
-  //   let newArray = [...favorite];
-  //   newArray.splice(favorite, 1);
-  //   setFavorite(newArray);
-  // }
-
-  // setFavorite()
   return (
     <div>
       <Nav />
-      {favorite.length > 0 && favorite.map((fav) => (
-        <h3>
-          <Link
-            to={`/workout/${fav.id}`}
-            className="btn btn-outline-dark button btn-lg"
-          >
-          <div key={fav.id}>
-              <button>{fav.name}</button>
-            </div>
-          </Link>
-          <button onClick={() => deleteItem(fav.id)}>DELETE</button>
-        </h3>
-      ))}
+      {favorite.length > 0 &&
+        favorite.map((fav) => (
+          <h3>
+            <Link
+              to={`/workout/${fav.id}`}
+              className="btn btn-outline-dark button btn-lg"
+            >
+              <div key={fav.id}>
+                <button>{fav.name}</button>
+              </div>
+            </Link>
+            <button onClick={() => deleteItem(fav.id)}>DELETE</button>
+            <Link
+              to={`/modify/${fav.id}`}
+              className="btn btn-outline-dark button btn-lg"
+            >
+              <div key={fav.id}>
+                <button>MODIFY</button>
+              </div>
+            </Link>
+          </h3>
+        ))}
     </div>
   );
 }

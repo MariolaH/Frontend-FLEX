@@ -13,7 +13,6 @@ function Nav() {
   };
 
   return (
-    // <Router>
     <div>
       <header>
         <button onClick={handleMenuToggle}>☰</button>
@@ -41,13 +40,9 @@ function Nav() {
         </nav>
       )}
       <main>
-        {/* <Routes> */}
-        {/* {/*             <Route path="/" element={<Home handleMuscleGroupClick={handleMuscleGroupClick} />} /> */}
-        {/*             <Route path="/favorites" element={<FavoritesList favoritesList={favoritesList} handleRemoveFromFavorites={handleRemoveFromFavorites} />} /> */}
-        {/* </Routes> */}
       </main>
     </div>
-    // </Router>
+
   );
 }
 
