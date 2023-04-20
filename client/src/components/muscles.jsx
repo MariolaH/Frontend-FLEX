@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import request from '../services/api.request';
+import request from "../services/api.request";
 import Nav from "./Nav";
 
 function Muscles() {
@@ -17,7 +17,6 @@ function Muscles() {
         method: "get",
       };
       let response = await request(config);
-
       setMuscle(response.data);
     };
     getMuscle();
@@ -33,7 +32,6 @@ function Muscles() {
     getExercise();
   }, []);
 
-
   const handleSaveWorkout = async () => {
     console.log(selectedExercises);
     let config = {
@@ -46,6 +44,7 @@ function Muscles() {
     };
     await request(config);
     setWorkoutName("");
+    setSelectMuscle("");
     setSelectedExercises([]);
   };
 
@@ -74,37 +73,39 @@ function Muscles() {
     setWorkoutName(event.target.value);
   };
 
-
   return (
     <>
       <Nav />
+      <h1>CREATE A NEW WORKOUT</h1>
       <h4>SELECT A MUSCLE GROUP(S)</h4>
 
-      {muscle.map((muscle) => (
-        <button
-          key={muscle.id}
-          onClick={() => handleMuscleGroupClick(muscle.name)}
-        >
+      {muscle.map((musc) => (
+        <button key={musc.id} onClick={() => handleMuscleGroupClick(musc.name)}>
           {" "}
-          <p> {muscle.name} </p>{" "}
+          <p> {musc.name} </p>{" "}
         </button>
       ))}
 
-      <h3>SELECT A EXERCISE</h3>
-      {exercise
-        .filter((e) => e.muscles.some((m) => m.name === selectMuscle))
-        .map((exercise) => (
-          <button key={exercise.id}>
-            <p onClick={() => handleExerciseClick(exercise)}>
-              {" "}
-              {exercise.name}{" "}
-            </p>{" "}
-          </button>
-        ))}
+      {selectMuscle && (
+        <div>
+          <h3>SELECT AN EXERCISE</h3>
+          {exercise
+            .filter((e) => e.muscles.some((m) => m.name === selectMuscle))
+            .map((exercise) => (
+              <button key={exercise.id}>
+                <p onClick={() => handleExerciseClick(exercise)}>
+                  {exercise.name}
+                </p>
+              </button>
+            ))}
+        </div>
+      )}
 
       {selectedExercises.map((exercise) => (
         <div key={exercise.id}>
-          <button onClick={() => RemoveExercise(exercise.id)}>{exercise.name}</button>
+          <button onClick={() => RemoveExercise(exercise.id)}>
+            {exercise.name}
+          </button>
         </div>
       ))}
       <div>

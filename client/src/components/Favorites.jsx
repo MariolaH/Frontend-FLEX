@@ -1,14 +1,13 @@
 import { useEffect, useState } from "react";
 import Nav from "./Nav";
 import { useGlobalState } from "../context/GlobalState";
-import request from '../services/api.request';
+import request from "../services/api.request";
 import { Link } from "react-router-dom";
-
 
 function Favorites() {
   const [favorite, setFavorite] = useState([]);
   const [state, dispatch] = useGlobalState();
-const [remove, setRemove]=useState([]);
+  // const [remove, setRemove] = useState([]);
 
   useEffect(() => {
     const getFavorite = async () => {
@@ -18,7 +17,7 @@ const [remove, setRemove]=useState([]);
       };
       let response = await request(config);
       setFavorite(response.data);
-      console.log(response.data);
+      // console.log(response.data);
     };
     getFavorite();
 
@@ -41,16 +40,18 @@ const [remove, setRemove]=useState([]);
   return (
     <div>
       <Nav />
-      {favorite.map((g) => (
+      {favorite.map((fav) => (
         <h3>
-          <Link to="/view" className="btn btn-outline-dark button btn-lg">
-            <button>{g.name}</button>{" "}
+          <Link
+            to={`/workout/${fav.id}`}
+            className="btn btn-outline-dark button btn-lg"
+          >
+            <button>{fav.name}</button>
           </Link>
         </h3>
-      ))}{" "}
+      ))}
     </div>
   );
 }
 
 export default Favorites;
-
