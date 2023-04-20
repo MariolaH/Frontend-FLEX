@@ -41,7 +41,7 @@ function Muscles() {
       method: "post",
       data: {
         name: workoutName,
-        exercises: [],
+        exercises: selectedExercises.map((e) => e.id),
       },
     };
     await request(config);

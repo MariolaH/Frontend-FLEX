@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import Nav from "./Nav";
 import { useGlobalState } from "../context/GlobalState";
 import request from '../services/api.request';
+import { Link } from "react-router-dom";
+
 
 function Favorites() {
   const [favorite, setFavorite] = useState([]);
@@ -20,36 +22,30 @@ const [remove, setRemove]=useState([]);
     };
     getFavorite();
 
-      const getRemove = async () => {
-      let config = {
-        url: "/workout/",
-        method: "delete",
-        // data: {
-        //   name: workoutName,
-        //   exercises: [],
-        // },
-      };
-      let response = await request(config);
-      setRemove(response.data);
-      console.log(response.data);
-    };
-    getRemove();
+    //   const getRemove = async () => {
+    //   let config = {
+    //     url: "/workout/",
+    //     method: "delete",
+    //     // data: {
+    //     //   name: workoutName,
+    //     //   exercises: [],
+    //     // },
+    //   };
+    //   let response = await request(config);
+    //   setRemove(response.data);
+    //   console.log(response.data);
+    // };
+    // getRemove();
   }, []);
-
-  const Remove = (favorite) => {
-    setRemove(favorite);
-  };
 
   return (
     <div>
       <Nav />
       {favorite.map((g) => (
         <h3>
-          {g.name} 
-          <button>Modify</button>
-          <button onClick={() => Remove(favorite)}>
-            Delete
-          </button>
+          <Link to="/view" className="btn btn-outline-dark button btn-lg">
+            <button>{g.name}</button>{" "}
+          </Link>
         </h3>
       ))}{" "}
     </div>
@@ -57,3 +53,4 @@ const [remove, setRemove]=useState([]);
 }
 
 export default Favorites;
+

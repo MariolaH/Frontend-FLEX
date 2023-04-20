@@ -5,6 +5,7 @@ import { Routes, Route } from "react-router-dom";
 import Muscles from './components/muscles'
 import Main from "./components/Main";
 import "./style/style.css"
+import View from "./components/View";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
       <Route path="/exercises" element={<Muscles />} />
       <Route path="/favorites" element={<Favorites />} />
       <Route path="/new" element={<Muscles />} />
+      <Route path="/view" element={<View />} />
     </Routes>
     // </>
   );
