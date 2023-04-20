@@ -17,37 +17,42 @@ function Favorites() {
       };
       let response = await request(config);
       setFavorite(response.data);
-      // console.log(response.data);
     };
-    getFavorite();
-
-    //   const getRemove = async () => {
-    //   let config = {
-    //     url: "/workout/",
-    //     method: "delete",
-    //     // data: {
-    //     //   name: workoutName,
-    //     //   exercises: [],
-    //     // },
-    //   };
-    //   let response = await request(config);
-    //   setRemove(response.data);
-    //   console.log(response.data);
-    // };
-    // getRemove();
+    getFavorite();    
   }, []);
+  
+    const deleteItem = async (favId) => {
+      let config = {
+        url: `/workout/${favId}`,
+        method: "delete",
+      };
+      let response = await request(config);
+      setFavorite(response.data);
+    };
+ 
+ 
 
+  // function deleteItem(favorites){
+  //   let newArray = [...favorite];
+  //   newArray.splice(favorite, 1);
+  //   setFavorite(newArray);
+  // }
+
+  // setFavorite()
   return (
     <div>
       <Nav />
-      {favorite.map((fav) => (
+      {favorite.length > 0 && favorite.map((fav) => (
         <h3>
           <Link
             to={`/workout/${fav.id}`}
             className="btn btn-outline-dark button btn-lg"
           >
-            <button>{fav.name}</button>
+          <div key={fav.id}>
+              <button>{fav.name}</button>
+            </div>
           </Link>
+          <button onClick={() => deleteItem(fav.id)}>DELETE</button>
         </h3>
       ))}
     </div>

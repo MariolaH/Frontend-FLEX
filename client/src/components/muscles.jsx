@@ -77,7 +77,7 @@ function Muscles() {
     <>
       <Nav />
       <h1>CREATE A NEW WORKOUT</h1>
-      <h4>SELECT A MUSCLE GROUP(S)</h4>
+      <h4>SELECT A MUSCLE GROUP</h4>
 
       {muscle.map((musc) => (
         <button key={musc.id} onClick={() => handleMuscleGroupClick(musc.name)}>
@@ -108,6 +108,7 @@ function Muscles() {
           </button>
         </div>
       ))}
+      {selectMuscle && (
       <div>
         <label htmlFor="workout-name">Workout Name:</label>
         <input
@@ -119,6 +120,7 @@ function Muscles() {
         />
         <button onClick={handleSaveWorkout}>Save Workout</button>
       </div>
+)}
     </>
   );
 }
