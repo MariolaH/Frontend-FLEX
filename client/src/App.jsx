@@ -6,7 +6,7 @@ import Muscles from "./components/muscles";
 import Main from "./components/Main";
 import "./style/style.css";
 import View from "./components/View";
-import Modify from './components/Modify' 
+import Modify from "./components/Modify";
 
 function App() {
   return (

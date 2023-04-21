@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Nav from "./Nav";
 import { useParams } from "react-router-dom";
 import request from "../services/api.request";
+import Muscles from "./muscles";
 
 function Modify() {
   const { id } = useParams();
@@ -28,8 +29,8 @@ function Modify() {
       {exercises?.map((exercise) => (
         <p key={exercise.id}>{exercise.name}</p>
       ))}
-      {/* when user clicks delete button (Link attached direct back to favorites) will also delete workout */}
-      {/* when user clicks modify, user can add exercises */}
+      <Muscles name={workoutName} />
+      <button>UPDATE WORKOUT</button>
     </>
   );
 }

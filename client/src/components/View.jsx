@@ -28,8 +28,6 @@ function View() {
       {exercises?.map((exercise) => (
         <p key={exercise.id}>{exercise.name}</p>
       ))}
-      {/* when user clicks delete button (Link attached direct back to favorites) will also delete workout */}
-      {/* when user clicks modify, user can add exercises */}
     </>
   );
 }

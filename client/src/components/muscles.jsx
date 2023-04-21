@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import request from "../services/api.request";
 import Nav from "./Nav";
 
-function Muscles() {
+function Muscles(props) {
   const [muscle, setMuscle] = useState([]);
   const [exercise, setExercise] = useState([]);
   const [selectMuscle, setSelectMuscle] = useState("");
@@ -108,19 +108,19 @@ function Muscles() {
           </button>
         </div>
       ))}
-      {selectMuscle && (
-      <div>
-        <label htmlFor="workout-name">Workout Name:</label>
-        <input
-          type="text"
-          id="workout-name"
-          name="workout-name"
-          value={workoutName}
-          onChange={handleWorkoutNameChange}
-        />
-        <button onClick={handleSaveWorkout}>Save Workout</button>
-      </div>
-)}
+      {selectMuscle && !props.name && (
+        <div>
+          <label htmlFor="workout-name">Workout Name:</label>
+          <input
+            type="text"
+            id="workout-name"
+            name="workout-name"
+            value={workoutName}
+            onChange={handleWorkoutNameChange}
+          />
+          <button onClick={handleSaveWorkout}>Save Workout</button>
+        </div>
+      )}
     </>
   );
 }
