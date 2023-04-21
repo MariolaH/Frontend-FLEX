@@ -28,7 +28,6 @@ function Favorites() {
       };
       let response = await request(config);
       setFavorite(favorite.filter(item => item.id !== favId))
-      // setFavorite(response.data);
     };
 
   return (

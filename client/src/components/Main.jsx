@@ -10,7 +10,6 @@ function Main() {
         <button> NEW WORKOUT </button>
       </Link>
 
-
       <Link to="/favorites" className="btn btn-outline-dark button btn-lg">
         <button> FAVORITE </button>
       </Link>

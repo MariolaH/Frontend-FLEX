@@ -28,21 +28,24 @@ function Nav() {
 
             <li>
               <Link to="/favorites" onClick={handleMenuToggle}>
-                Favorites
+                FAVORITES
               </Link>
             </li>
             <li>
               <Link to="/new" onClick={handleMenuToggle}>
-                New Workout
+                NEW WORKOUT
               </Link>
+              <li>
+              <Link to="/home" onClick={handleMenuToggle}>
+                LOG OUT
+              </Link>
+              </li>
             </li>
           </ul>
         </nav>
       )}
-      <main>
-      </main>
+      <main></main>
     </div>
-
   );
 }
 

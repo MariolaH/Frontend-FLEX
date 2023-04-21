@@ -76,7 +76,6 @@ function Muscles(props) {
   return (
     <>
       <Nav />
-      <h1>CREATE A NEW WORKOUT</h1>
       <h4>SELECT A MUSCLE GROUP</h4>
 
       {muscle.map((musc) => (

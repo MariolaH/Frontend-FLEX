@@ -7,6 +7,7 @@ import Main from "./components/Main";
 import "./style/style.css";
 import View from "./components/View";
 import Modify from "./components/Modify";
+import Card from "react-bootstrap/Card";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
     // <Nav />
     <Routes>
       <Route path="/" element={<Home />} />
+      <Route path="/home" element={<Home />} />
       <Route path="/main" element={<Main />} />
       <Route path="/login" element={<Favorites />} />
       <Route path="/login" element={<Muscles />} />

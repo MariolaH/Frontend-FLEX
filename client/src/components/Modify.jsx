@@ -6,8 +6,10 @@ import Muscles from "./muscles";
 
 function Modify() {
   const { id } = useParams();
+  const [selectMuscle, setSelectMuscle] = useState("");
   const [exercises, setExercises] = useState([]);
   const [workoutName, setWorkoutName] = useState("");
+  const [selectedExercises, setSelectedExercises] = useState([]);
 
   useEffect(() => {
     const getWorkoutExercises = async () => {
@@ -22,15 +24,28 @@ function Modify() {
     getWorkoutExercises();
   }, [id]);
 
+  const modifyItem = async () => {
+    let config = {
+      url: `/workout/${id}/`,
+      method: "patch",
+      data: {
+        exercises: selectedExercises.map((e) => e.id),
+      },
+    };
+    await request(config);
+    setSelectMuscle("");
+    setSelectedExercises([]);
+  };
+
   return (
     <>
-      <Nav />
+      <Muscles name={workoutName} />
       <h1>{workoutName}</h1>
       {exercises?.map((exercise) => (
         <p key={exercise.id}>{exercise.name}</p>
-      ))}
-      <Muscles name={workoutName} />
-      <button>UPDATE WORKOUT</button>
+        ))}
+        <button onClick={() => modifyItem()}>UPDATE WORKOUT</button>
+
     </>
   );
 }
