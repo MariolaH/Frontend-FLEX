@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import request from "../services/api.request";
 import Nav from "./Nav";
+import Card from "react-bootstrap/Card";
 
 function Muscles(props) {
   const [muscle, setMuscle] = useState([]);
@@ -76,50 +77,65 @@ function Muscles(props) {
   return (
     <>
       <Nav />
-      <h4>SELECT A MUSCLE GROUP</h4>
+      <Card>
+        <Card.Body>
+          <h4>SELECT A MUSCLE GROUP</h4>
+        </Card.Body>
 
-      {muscle.map((musc) => (
-        <button key={musc.id} onClick={() => handleMuscleGroupClick(musc.name)}>
-          {" "}
-          <p> {musc.name} </p>{" "}
-        </button>
-      ))}
-
+        {muscle.map((musc) => (
+          <button
+            key={musc.id}
+            onClick={() => handleMuscleGroupClick(musc.name)}
+          >
+            {" "}
+            <p> {musc.name} </p>{" "}
+          </button>
+        ))}
+        </Card>
       {selectMuscle && (
-        <div>
-          <h3>SELECT AN EXERCISE</h3>
+        <Card>
+          <Card.Body>
+            <h3>SELECT AN EXERCISE</h3>.
+          </Card.Body>
+
           {exercise
             .filter((e) => e.muscles.some((m) => m.name === selectMuscle))
             .map((exercise) => (
-              <button key={exercise.id}>
-                <p onClick={() => handleExerciseClick(exercise)}>
-                  {exercise.name}
-                </p>
+              <button
+                size="lg"
+                key={exercise.id}
+                onClick={() => handleExerciseClick(exercise)}
+              >
+                <p>{exercise.name}</p>
               </button>
             ))}
-        </div>
+        </Card>
       )}
 
+      {"\u00A0"}
       {selectedExercises.map((exercise) => (
-        <div key={exercise.id}>
+        <Card key={exercise.id}>
           <button onClick={() => RemoveExercise(exercise.id)}>
             {exercise.name}
           </button>
-        </div>
+        </Card>
       ))}
-      {selectMuscle && !props.name && (
-        <div>
-          <label htmlFor="workout-name">Workout Name:</label>
-          <input
-            type="text"
-            id="workout-name"
-            name="workout-name"
-            value={workoutName}
-            onChange={handleWorkoutNameChange}
-          />
-          <button onClick={handleSaveWorkout}>Save Workout</button>
-        </div>
-      )}
+      <Card>
+        {selectMuscle && !props.name && (
+          <Card.Body>
+            <label htmlFor="workout-name">Workout Name:</label>
+
+            <input
+              type="text"
+              id="workout-name"
+              name="workout-name"
+              value={workoutName}
+              onChange={handleWorkoutNameChange}
+            />
+            <button onClick={handleSaveWorkout}>Save Workout</button>
+          </Card.Body>
+        )}
+      </Card>
     </>
   );
 }

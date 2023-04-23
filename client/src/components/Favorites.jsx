@@ -33,6 +33,10 @@ function Favorites() {
   return (
     <div>
       <Nav />
+
+      {/* <Card>
+        <Card.Body>This is some text within a card body.</Card.Body>
+      </Card> */}
       {favorite.length > 0 &&
         favorite.map((fav) => (
           <h3>
@@ -40,18 +44,16 @@ function Favorites() {
               to={`/workout/${fav.id}`}
               className="btn btn-outline-dark button btn-lg"
             >
-              <div key={fav.id}>
-                <button>{fav.name}</button>
-              </div>
+              <button key={fav.id}>{fav.name}</button>
             </Link>
             <button onClick={() => deleteItem(fav.id)}>DELETE</button>
             <Link
               to={`/modify/${fav.id}`}
               className="btn btn-outline-dark button btn-lg"
             >
-              <div key={fav.id}>
-                <button>MODIFY</button>
-              </div>
+             
+                <button key={fav.id}>MODIFY</button>
+          
             </Link>
           </h3>
         ))}
