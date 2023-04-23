@@ -3,6 +3,7 @@ import Nav from "./Nav";
 import { useGlobalState } from "../context/GlobalState";
 import request from "../services/api.request";
 import { Link } from "react-router-dom";
+import Card from "react-bootstrap/Card";
 
 function Favorites() {
   const [favorite, setFavorite] = useState([]);
@@ -34,27 +35,33 @@ function Favorites() {
     <div>
       <Nav />
 
-      {/* <Card>
-        <Card.Body>This is some text within a card body.</Card.Body>
-      </Card> */}
       {favorite.length > 0 &&
         favorite.map((fav) => (
           <h3>
-            <Link
-              to={`/workout/${fav.id}`}
-              className="btn btn-outline-dark button btn-lg"
-            >
-              <button key={fav.id}>{fav.name}</button>
-            </Link>
-            <button onClick={() => deleteItem(fav.id)}>DELETE</button>
-            <Link
-              to={`/modify/${fav.id}`}
-              className="btn btn-outline-dark button btn-lg"
-            >
-             
-                <button key={fav.id}>MODIFY</button>
-          
-            </Link>
+            <Card>
+              <Card.Body>
+                <Link
+                  to={`/workout/${fav.id}`}
+                  className="btn btn-outline-dark button btn-lg"
+                >
+                  <button key={fav.id}>{fav.name}</button>
+                </Link>
+              </Card.Body>
+            
+              <Card.Body>
+                <button key={fav.id} onClick={() => deleteItem(fav.id)}>
+                  DELETE
+                </button>
+              </Card.Body>{" "}
+              <Card.Body>
+                <Link
+                  to={`/modify/${fav.id}`}
+                  className="btn btn-outline-dark button btn-lg"
+                >
+                  <button key={fav.id}>MODIFY</button>
+                </Link>
+              </Card.Body>
+            </Card>
           </h3>
         ))}
     </div>

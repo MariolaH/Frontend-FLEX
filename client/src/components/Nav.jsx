@@ -35,16 +35,15 @@ function Nav() {
               <Link to="/new" onClick={handleMenuToggle}>
                 NEW WORKOUT
               </Link>
-              <li>
+              </li>
+              
               <Link to="/home" onClick={handleMenuToggle}>
                 LOG OUT
               </Link>
-              </li>
-            </li>
           </ul>
         </nav>
       )}
-      <main></main>
+   
     </div>
   );
 }
