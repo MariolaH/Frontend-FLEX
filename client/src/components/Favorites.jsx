@@ -70,8 +70,7 @@ function Favorites() {
         <ListGroup variant="flush">
           {favorite.length > 0 &&
             favorite.map((fav) => (
-              <h3>
-                <ListGroup.Item>
+              <h3> <ListGroup.Item>
                   <Link
                     to={`/workout/${fav.id}`}
                     // className="btn btn-outline-dark button btn-lg"

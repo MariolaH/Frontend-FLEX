@@ -8,7 +8,6 @@ import Col from "react-bootstrap/Col";
 import InputGroup from "react-bootstrap/InputGroup";
 import Form from "react-bootstrap/Form";
 
-
 function Muscles(props) {
   const [muscle, setMuscle] = useState([]);
   const [exercise, setExercise] = useState([]);
@@ -108,7 +107,7 @@ function Muscles(props) {
                 <Card.Body>
                   <h5>SELECT AN EXERCISE</h5>
                 </Card.Body>
-
+                {"\u00A0"}
                 {exercise
                   .filter((e) => e.muscles.some((m) => m.name === selectMuscle))
                   .map((exercise) => (
@@ -134,30 +133,10 @@ function Muscles(props) {
                 </button>
               </Card>
             ))}
+            {"\u00A0"}
             <Card border="light" className="row">
               {selectMuscle && !props.name && (
                 <Card.Body>
-                  {/* <label htmlFor="workout-name"></label>
-                <InputGroup id="inputGroup-sizing-sm">
-                <input
-                className="input"
-                type="text"
-                id="workout-name"
-                name="workout-name"
-                placeholder="Enter Workout Name"
-                value={workoutName}
-                onChange={handleWorkoutNameChange}
-                />
-                
-                <button
-                id="button-addon1"
-                className="btn btn-outline-dark button btn-lg"
-                onClick={handleSaveWorkout}
-                >
-                    Save Workout
-                  </button>
-                </InputGroup> */}
-
                   <InputGroup className="mb-3">
                     <Form.Control
                       className="input"
