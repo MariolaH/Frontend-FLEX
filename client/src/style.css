@@ -10,7 +10,7 @@
     color: whitesmoke;
     justify-content: center;
     font-family: monospace;
-    font-size: 10px;
+    font-size: smaller;
 }
 
 .row{
@@ -19,4 +19,5 @@
 
 .btn {
     color: orange;
+    font-size: 15px;
 }

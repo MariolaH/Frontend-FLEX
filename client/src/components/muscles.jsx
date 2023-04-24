@@ -7,7 +7,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import InputGroup from "react-bootstrap/InputGroup";
 import Form from "react-bootstrap/Form";
-import { Button } from "bootstrap";
+
 
 function Muscles(props) {
   const [muscle, setMuscle] = useState([]);
@@ -88,8 +88,8 @@ function Muscles(props) {
           <Col>
             <Card border="light" className="row">
               {"\u00A0"}
-              <h4>SELECT A MUSCLE GROUP</h4>
-              <Card.Body></Card.Body>
+              <h5>SELECT A MUSCLE GROUP</h5>
+              {/* <Card.Body></Card.Body> */}
 
               {muscle.map((musc) => (
                 <button
@@ -106,7 +106,7 @@ function Muscles(props) {
             {selectMuscle && (
               <Card border="light" className="row">
                 <Card.Body>
-                  <h3>SELECT AN EXERCISE</h3>
+                  <h5>SELECT AN EXERCISE</h5>
                 </Card.Body>
 
                 {exercise
