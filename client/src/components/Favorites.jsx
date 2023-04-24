@@ -36,77 +36,48 @@ function Favorites() {
   };
 
   return (
-    //     <Card style={{ width: "18rem" }}>
-    //       <ListGroup variant="flush">
-    //         {favorite.length > 0 &&
-    //           favorite.map((fav) => (
-    //             <React.Fragment key={fav.id}>
-    //               <ListGroup.Item>
-    //                 <Link
-    //                   to={`/workout/${fav.id}`}
-    //                   className="btn btn-outline-dark button btn-lg"
-    //                 >
-    //                   {fav.name}
-    //                 </Link>
-    //               </ListGroup.Item>
-    //               <ListGroup.Item>
-    //                 <button onClick={() => deleteItem(fav.id)}>DELETE</button>
-
-    //                 <Link
-    //                   to={`/modify/${fav.id}`}
-    //                   className="btn btn-outline-dark button btn-lg"
-    //                 >
-    //                   MODIFY
-    //                 </Link>
-    //               </ListGroup.Item>
-    //             </React.Fragment>
-    //           ))}
-    //       </ListGroup>
-    //     </Card>
-    //   );
-    // }
-
     <div>
       <Nav />
-      <Container className="select">
+      <Container className="select d-flex p-2">
         <Row className="row">
           <Col>
-            <Card border="light" className="row">
+            <Card border="none" className="row">
               {favorite.length > 0 &&
                 favorite.map((fav) => (
                   <h3>
-                    <Link to={`/workout/${fav.id}`}>
-                      <Card.Body>
-                        {" "}
-                        <button
-                          className="btn btn-outline-dark button btn-lg"
-                          key={fav.id}
-                        >
-                          {fav.name}
-                        </button>
-                      </Card.Body>
-                    </Link>
-                    <Card border="none" className="row">
-                      <Card.Body>
-                        {" "}
-                        <button
-                          className="btn btn-outline-dark button btn-lg"
-                          key={fav.id}
-                          onClick={() => deleteItem(fav.id)}
-                        >
-                          DELETE
-                        </button>
-                        <Link to={`/workout/edit/${fav.id}`}>
+                    <Card.Body>
+                      <div class="d-flex mb-3">
+                        <div class="me-auto p-2">
+                          <Link to={`/workout/${fav.id}`}>
+                            {" "}
+                            <button
+                              className="btn btn-outline-dark button btn-lg"
+                              key={fav.id}
+                            >
+                              {fav.name}
+                            </button>
+                          </Link>{" "}
+                        </div>
+                        <div class="p-2">
                           <button
                             className="btn btn-outline-dark button btn-lg"
-                            style={{ outline: "none" }}
                             key={fav.id}
+                            onClick={() => deleteItem(fav.id)}
                           >
-                            MODIFY
+                            DELETE
                           </button>
-                        </Link>
-                      </Card.Body>
-                    </Card>
+                          <Link to={`/workout/edit/${fav.id}`}>
+                            <button
+                              className="btn btn-outline-dark button btn-lg"
+                              style={{ outline: "none" }}
+                              key={fav.id}
+                            >
+                              MODIFY
+                            </button>
+                          </Link>
+                        </div>
+                      </div>
+                    </Card.Body>
                   </h3>
                 ))}
             </Card>
@@ -115,44 +86,6 @@ function Favorites() {
       </Container>
     </div>
   );
-}
-
-
-
-
-
-//     <div>
-//       <Nav />
-//  {favorite.length > 0 &&
-//         favorite.map((fav) => (
-//           <h3>
-//             <Card>
-//               <Card.Body>
-//                 <Link
-//                   to={`/workout/${fav.id}`}
-//                   className="btn btn-outline-dark button btn-lg"
-//                 >
-//                   <button key={fav.id}>{fav.name}</button>
-//                 </Link>
-//               </Card.Body>
-//               <Card.Body>
-//                 <button key={fav.id} onClick={() => deleteItem(fav.id)}>
-//                   DELETE
-//                 </button>
-//               </Card.Body>{" "}
-//               <Card.Body>
-//                 <Link
-//                   to={`/workout/edit/${fav.id}`}
-//                   className="btn btn-outline-dark button btn-lg"
-//                 >
-//                   <button key={fav.id}>MODIFY</button>
-//                 </Link>
-//               </Card.Body>
-//             </Card>
-//           </h3>
-//         ))}
-//     </div>
-//   );
-// }
+} 
 
 export default Favorites;

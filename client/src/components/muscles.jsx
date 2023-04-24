@@ -112,7 +112,7 @@ function Muscles(props) {
       <Container className="select rounded-2xl">
         <Row className="row">
           <Col>
-            <Card border="secondary" className="row">
+            <Card border="none" className="row">
               {"\u00A0"}
               <h5>SELECT A MUSCLE GROUP</h5>
               {/* <Card.Body></Card.Body> */}
@@ -155,7 +155,7 @@ function Muscles(props) {
             )}
             {"\u00A0"}
             {selectedExercises.map((exercise) => (
-              <Card key={exercise.id} border="light" className="row">
+              <Card key={exercise.id} border="none" className="row">
                 <button
                   className="btn btn-outline-dark button btn-lg"
                   onClick={() => RemoveExercise(exercise.id)}
@@ -166,7 +166,7 @@ function Muscles(props) {
             ))}
             {"\u00A0"}
             {selectMuscle && !props.name && (
-              <Card border="light" className="row">
+              <Card border="none" className="row">
                 <Card.Body>
                   <InputGroup className="mb-3">
                     <Form.Control
