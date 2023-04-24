@@ -8,7 +8,7 @@ import Col from "react-bootstrap/Col";
 import InputGroup from "react-bootstrap/InputGroup";
 import Form from "react-bootstrap/Form";
 import { useParams } from "react-router-dom";
-// import toast, { Toaster } from "react-hot-toast";
+import toast, { Toaster } from "react-hot-toast";
 
 function Muscles(props) {
   const { workoutId } = useParams();
@@ -19,7 +19,7 @@ function Muscles(props) {
   const [selectMuscle, setSelectMuscle] = useState("");
   const [selectedExercises, setSelectedExercises] = useState([]);
   const [workoutName, setWorkoutName] = useState("");
-  // const [remove, setRemove]=useState([])
+  // const [disabled, setDisabled] = useState(false);
 
   // Initial GET requests for Exercises/Muscle Groups
   useEffect(() => {
@@ -75,6 +75,14 @@ function Muscles(props) {
       },
     };
     await request(config);
+    toast("SAVED!", {
+      icon: "👏",
+      style: {
+        borderRadius: "50px",
+        background: "#333",
+        color: "#fff",
+      },
+    });
     setWorkoutName("");
     setSelectMuscle("");
     setSelectedExercises([]);
@@ -105,21 +113,23 @@ function Muscles(props) {
     setWorkoutName(event.target.value);
   };
 
-  // const notify = () => toast("Workout Save!");
   return (
     <>
       <Nav />
+      <Toaster />
       <Container className="select rounded-2xl">
         <Row className="row">
           <Col>
             <Card border="none" className="row">
               {"\u00A0"}
-              <h5 className="selectMuscle" style={{ textAlign: "center" }}>SELECT A MUSCLE GROUP</h5>
+              <h5 className="selectMuscle" style={{ textAlign: "center" }}>
+                SELECT A MUSCLE GROUP
+              </h5>
               {/* <Card.Body></Card.Body> */}
 
               {muscle.map((musc) => (
                 <button
-                  className="btn btn-outline-dark button btn-lg"
+                  className="btn btn-outline-dark button btn-lg mb-2"
                   key={musc.id}
                   onClick={() => handleMuscleGroupClick(musc.name)}
                 >
@@ -139,7 +149,7 @@ function Muscles(props) {
                   .filter((e) => e.muscles.some((m) => m.name === selectMuscle))
                   .map((exercise) => (
                     <button
-                      className={`btn btn-outline-dark button btn-lg ${
+                      className={`btn btn-outline-dark button btn-lg mb-2 ${
                         selectedExercises.find((ex) => ex.id === exercise.id)
                           ? "active"
                           : ""
@@ -147,6 +157,7 @@ function Muscles(props) {
                       size="lg"
                       key={exercise.id}
                       onClick={() => handleExerciseClick(exercise)}
+                      // disabled={disabled}
                     >
                       <p>{exercise.name}</p>
                     </button>
@@ -154,10 +165,17 @@ function Muscles(props) {
               </Card>
             )}
             {"\u00A0"}
+            {selectMuscle && (
+              <>
+                <Card.Body>
+                  <h5 style={{ textAlign: "center" }}>SELECTED EXERCISES</h5>
+                </Card.Body>
+              </>
+            )}
             {selectedExercises.map((exercise) => (
               <Card key={exercise.id} border="none" className="row">
                 <button
-                  className="btn btn-outline-dark button btn-lg"
+                  className="btn btn-outline-dark button btn-lg mb-2"
                   onClick={() => RemoveExercise(exercise.id)}
                 >
                   {exercise.name}
@@ -171,7 +189,7 @@ function Muscles(props) {
                   <InputGroup className="mb-3">
                     <Form.Control
                       className="input"
-                      placeholder="Name Workout"
+                      placeholder="Name"
                       aria-label="Workout Name"
                       aria-describedby="basic-addon2"
                       value={workoutName}
@@ -179,10 +197,8 @@ function Muscles(props) {
                     />
                     <button
                       className="btn btn-outline-dark button btn-lg"
-                      // variant="outline-secondary"
                       id="button-addon2"
                       onClick={handleSaveWorkout}
-                      // onClick={notify}
                     >
                       SAVE
                     </button>
@@ -190,7 +206,6 @@ function Muscles(props) {
                 </Card.Body>
               </Card>
             )}
-            {/* <Col>1 of 3</Col> */}
           </Col>
         </Row>
       </Container>

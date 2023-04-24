@@ -7,6 +7,7 @@ import InputGroup from "react-bootstrap/InputGroup";
 import Form from "react-bootstrap/Form";
 
 
+
 const Login = () => {
   let navigate = useNavigate();
 
@@ -26,10 +27,12 @@ const Login = () => {
       });
       navigate("/main");
     });
+    
   };
 
   return (
     <div className="c-form">
+
       <form onSubmit={handleLogin}>
         <div className="login">
           {/* <label htmlFor="username">Username:</label> */}
@@ -56,7 +59,7 @@ const Login = () => {
           />
         </div>
         <input
-          className="btn btn-outline-dark button btn-lg"
+          className="btn btn2 btn-outline-dark button btn-lg"
           type="submit"
           value="Sign in"
         />

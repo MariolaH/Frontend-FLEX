@@ -8,6 +8,7 @@ import React from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import toast, { Toaster } from "react-hot-toast";
 
 function Favorites() {
   const [favorite, setFavorite] = useState([]);
@@ -33,16 +34,23 @@ function Favorites() {
     };
     let response = await request(config);
     setFavorite(favorite.filter((item) => item.id !== favId));
+      toast("YOUR WORKOUT HAS BEEN DELETED!", {
+        style: {
+          borderRadius: "50px",
+          background: "#333",
+          color: "#fff",
+        },
+      });
   };
 
   return (
     <div>
+      <Toaster />
       <Nav />
       <Container className="select d-flex p-2">
         <Row className="row">
           <Col>
             <Card border="none" className="row">
-              
               <h2 className="mainFavs" style={{ textAlign: "center" }}>
                 WORKOUTS
               </h2>
@@ -50,8 +58,8 @@ function Favorites() {
                 favorite.map((fav) => (
                   <h3>
                     <Card.Body>
-                      <div class="d-flex mb-3">
-                        <div class="me-auto p-2">
+                      <div className="mb-3" style={{ textAlign: "center" }}>
+                        <div className="me-auto p-2">
                           <Link to={`/workout/${fav.id}`}>
                             {" "}
                             <button
@@ -62,9 +70,9 @@ function Favorites() {
                             </button>
                           </Link>{" "}
                         </div>
-                        <div class="p-2">
+                        <div className="p-2">
                           <button
-                            className="btn btn-outline-dark button btn-lg"
+                            className="btn btn2 btn-outline-dark button btn-sm me-2"
                             key={fav.id}
                             onClick={() => deleteItem(fav.id)}
                           >
@@ -72,7 +80,7 @@ function Favorites() {
                           </button>
                           <Link to={`/workout/edit/${fav.id}`}>
                             <button
-                              className="btn btn-outline-dark button btn-lg"
+                              className="btn btn-outline-light button btn-sm ms-2"
                               style={{ outline: "none" }}
                               key={fav.id}
                             >
@@ -82,6 +90,7 @@ function Favorites() {
                         </div>
                       </div>
                     </Card.Body>
+                    <hr className="bg-secondary m-1" />
                   </h3>
                 ))}
             </Card>
@@ -90,6 +99,6 @@ function Favorites() {
       </Container>
     </div>
   );
-} 
+}
 
 export default Favorites;

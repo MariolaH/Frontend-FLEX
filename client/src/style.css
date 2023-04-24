@@ -1,69 +1,84 @@
 .input {
-    background-color: rgb(6, 6, 6);
-    font-family: monospace;
+  background-color: rgb(6, 6, 6);
+  font-family: monospace;
 }
 
 .select {
-    background-color: rgb(6, 6, 6);
-    padding-left: 80px;
-    padding-right: 80px;
-    color: whitesmoke;
-    justify-content: center;
-    font-family: monospace;
-    font-size: smaller;
+  background-color: rgb(6, 6, 6);
+  padding-left: 80px;
+  padding-right: 80px;
+  color: whitesmoke;
+  justify-content: center;
+  font-family: monospace;
+  font-size: smaller;
 }
 
-.row{
-    background-color: rgb(6,6,6);
+.row {
+  background-color: rgb(6, 6, 6);
 }
 
 .btn {
-    color: orange;
-    font-size: 15px;
+  color: orange;
+  font-size: 15px;
+  border-color: grey;
+  font-family: monospace;
+  min-width: 110px;
 }
 
+.btn2 {
+  background-color: orange;
+  color: black;
+  font-size: 15px;
+  font-family: monospace;
+}
 
-body{
-    background-color: rgb(6, 6, 6);
+body {
+  background-color: rgb(6, 6, 6);
 }
 
 h1 {
-    color: whitesmoke;
-    align-items: center !important;
+  color: whitesmoke;
+  align-items: center !important;
+  font-family: monospace;
+}
+.h1View {
+  padding-bottom: 20px;
+  font-family: monospace;
 }
 
 li {
-    list-style: none;
+  list-style: none;
 }
 
 .mainHeader {
-    color: orange;
-    text-align: center;
-    font-size: 50px;
-    font-family: monospace;
-    padding-bottom: 10px;
+  color: orange;
+  text-align: center;
+  font-size: 50px;
+  font-family: monospace;
+  padding-bottom: 10px;
 }
 
 .img {
-     padding-top: 30px;
+  padding-top: 30px;
 }
 
 .mainButtons {
-    padding-top: 60px;
+  padding-top: 60px;
+  font-family: monospace;
 }
 
 .mainFavs {
-    padding-bottom: 20px;
-    color: whitesmoke;
-    font-family: monospace;
-    font-size: 50px;
+  padding-bottom: 20px;
+  color: whitesmoke;
+  font-family: monospace;
+  font-size: 50px;
 }
 
 .selectMuscle {
-    padding-top: 20px;
-    padding-bottom: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .login {
-    padding-bottom: 3px;
+  padding-bottom: 3px;
 }

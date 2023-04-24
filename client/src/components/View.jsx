@@ -33,7 +33,9 @@ function View() {
         <Row className="row">
           <Col>
             <Card border="none" className="row" style={{ textAlign: "center" }}>
-              <h1>{workoutName}</h1>
+              <h1 className="h1View">
+                {workoutName}
+              </h1>
 
               {exercises?.map((exercise) => (
                 <p key={exercise.id}>{exercise.name}</p>
