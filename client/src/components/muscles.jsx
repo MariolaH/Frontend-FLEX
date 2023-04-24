@@ -114,7 +114,7 @@ function Muscles(props) {
           <Col>
             <Card border="none" className="row">
               {"\u00A0"}
-              <h5>SELECT A MUSCLE GROUP</h5>
+              <h5 className="selectMuscle" style={{ textAlign: "center" }}>SELECT A MUSCLE GROUP</h5>
               {/* <Card.Body></Card.Body> */}
 
               {muscle.map((musc) => (
@@ -132,7 +132,7 @@ function Muscles(props) {
             {selectMuscle && (
               <Card border="none" className="row">
                 <Card.Body>
-                  <h5>SELECT AN EXERCISE</h5>
+                  <h5 style={{ textAlign: "center" }}>SELECT AN EXERCISE</h5>
                 </Card.Body>
                 {"\u00A0"}
                 {exercise
@@ -179,7 +179,7 @@ function Muscles(props) {
                     />
                     <button
                       className="btn btn-outline-dark button btn-lg"
-                      variant="outline-secondary"
+                      // variant="outline-secondary"
                       id="button-addon2"
                       onClick={handleSaveWorkout}
                       // onClick={notify}

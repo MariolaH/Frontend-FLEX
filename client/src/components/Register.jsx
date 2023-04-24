@@ -30,9 +30,10 @@ const Register = () => {
   return (
     <div className="c-form">
       <form onSubmit={handleRegister}>
-        <div>
-          <label htmlFor="username">Username:</label>
+        <div className="login">
+          {/* <label htmlFor="username">Username:</label> */}
           <input
+            placeholder="Username"
             type="text"
             id="username"
             name="username"
@@ -40,9 +41,10 @@ const Register = () => {
             required
           />
         </div>
-        <div>
-          <label htmlFor="email">Email:</label>
+        <div className="login">
+          {/* <label htmlFor="email">Email:</label> */}
           <input
+            placeholder="Email"
             type="text"
             id="email"
             name="email"
@@ -50,9 +52,10 @@ const Register = () => {
             required
           />
         </div>
-        <div>
-          <label htmlFor="pass">Password (8 characters minimum):</label>
+        <div className="login">
+          {/* <label htmlFor="pass">Password (8 characters minimum):</label> */}
           <input
+            placeholder="Password"
             type="password"
             id="pass"
             name="password"
@@ -61,9 +64,10 @@ const Register = () => {
             onChange={(e) => handleChange("password", e.target.value)}
           />
         </div>
-        <div>
-          <label htmlFor="passConf">Confirm Password:</label>
+        <div className="login">
+          {/* <label htmlFor="passConf">Confirm Password:</label> */}
           <input
+            placeholder="Confirm Password"
             type="password"
             id="passConf"
             name="password"
@@ -72,9 +76,10 @@ const Register = () => {
             onChange={(e) => handleChange("passwordConf", e.target.value)}
           />
         </div>
-        <div>
-          <label htmlFor="firstName">First Name:</label>
+        <div className="login">
+          {/* <label htmlFor="firstName">First Name:</label> */}
           <input
+            placeholder="First Name"
             type="text"
             id="firstName"
             name="fname"
@@ -82,9 +87,10 @@ const Register = () => {
             onChange={(e) => handleChange("firstName", e.target.value)}
           />
         </div>
-        <div>
-          <label htmlFor="lastName">Last Name:</label>
+        <div className="login">
+          {/* <label htmlFor="lastName">Last Name:</label> */}
           <input
+            placeholder="Last Name"
             type="text"
             id="lastName"
             name="lname"

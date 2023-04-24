@@ -31,9 +31,11 @@ const Login = () => {
   return (
     <div className="c-form">
       <form onSubmit={handleLogin}>
-        <div>
-          <label htmlFor="username">Username:</label>
+        <div className="login">
+          {/* <label htmlFor="username">Username:</label> */}
           <input
+            placeholder="Username"
+            variant="outline-secondary"
             type="text"
             id="username"
             name="username"
@@ -41,9 +43,10 @@ const Login = () => {
             required
           />
         </div>
-        <div>
-          <label htmlFor="pass">Password:</label>
+        <div className="login">
+          {/* <label htmlFor="pass">Password:</label> */}
           <input
+            placeholder="Password"
             type="password"
             id="pass"
             name="password"
@@ -59,9 +62,6 @@ const Login = () => {
         />
       </form>
     </div>
-
-   
-         
   );
 };
 

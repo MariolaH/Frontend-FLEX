@@ -22,10 +22,6 @@
     font-size: 15px;
 }
 
-/* .btnNav {
-    color: whitesmoke;
-    font-size: 15px;
-} */
 
 body{
     background-color: rgb(6, 6, 6);
@@ -38,4 +34,36 @@ h1 {
 
 li {
     list-style: none;
+}
+
+.mainHeader {
+    color: orange;
+    text-align: center;
+    font-size: 50px;
+    font-family: monospace;
+    padding-bottom: 10px;
+}
+
+.img {
+     padding-top: 30px;
+}
+
+.mainButtons {
+    padding-top: 60px;
+}
+
+.mainFavs {
+    padding-bottom: 20px;
+    color: whitesmoke;
+    font-family: monospace;
+    font-size: 50px;
+}
+
+.selectMuscle {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.login {
+    padding-bottom: 3px;
 }

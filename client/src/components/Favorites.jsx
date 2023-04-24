@@ -42,6 +42,10 @@ function Favorites() {
         <Row className="row">
           <Col>
             <Card border="none" className="row">
+              
+              <h2 className="mainFavs" style={{ textAlign: "center" }}>
+                WORKOUTS
+              </h2>
               {favorite.length > 0 &&
                 favorite.map((fav) => (
                   <h3>

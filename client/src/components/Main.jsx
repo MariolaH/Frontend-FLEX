@@ -7,11 +7,18 @@ import Col from "react-bootstrap/Col";
 function Main() {
   return (
     <>
-      <Container className="select">
+      <Container className="select" style={{ textAlign: "center" }}>
         <Row className="row">
           <Col>
+            <img
+              className="img"
+              style={{ alignSelf: "center" }}
+              src="./image/Logo.png"
+              alt="Logo"
+            />
+            <h2 className="mainHeader">FLEX</h2>
             <Card border="none" className="row">
-              <Card.Body>
+              <Card.Body className="mainButtons">
                 <Link to="/exercises">
                   <button className="btn btn-outline-dark button btn-lg">
                     {" "}

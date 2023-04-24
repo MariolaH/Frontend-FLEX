@@ -11,14 +11,16 @@ import Col from "react-bootstrap/Col";
 function Home() {
   return (
     <>
-      <img
-        src="./image/Logo.png"
-        className="homePagePic"
-        alt="Mariola Hullings"
-      />
-      <Container className="select">
+      <Container className="select" style={{ textAlign: "center" }}>
         <Row className="row">
           <Col>
+            <img
+              className="img"
+              style={{ alignSelf: "center" }}
+              src="./image/Logo.png"
+              alt="Logo"
+            />
+            <h2 className="mainHeader">FLEX</h2>
             <Card border="none" className="row">
               <Card.Body>
                 <Login />
