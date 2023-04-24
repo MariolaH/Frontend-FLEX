@@ -6,12 +6,18 @@ function Main() {
 
   return (
     <>
-      <Link to="/exercises" className="btn btn-outline-dark button btn-lg">
-        <button> NEW WORKOUT </button>
+      <Link to="/exercises">
+        <button className="btn btn-outline-dark button btn-lg">
+          {" "}
+          NEW WORKOUT{" "}
+        </button>
       </Link>
 
-      <Link to="/favorites" className="btn btn-outline-dark button btn-lg">
-        <button> FAVORITE </button>
+      <Link to="/favorites">
+        <button className="btn btn-outline-dark button btn-lg">
+          {" "}
+          FAVORITE{" "}
+        </button>
       </Link>
     </>
   );

@@ -1,0 +1,22 @@
+.input {
+    background-color: rgb(6, 6, 6);
+    font-family: monospace;
+}
+
+.select {
+    background-color: rgb(6, 6, 6);
+    padding-left: 80px;
+    padding-right: 80px;
+    color: whitesmoke;
+    justify-content: center;
+    font-family: monospace;
+    font-size: 10px;
+}
+
+.row{
+    background-color: rgb(6,6,6);
+}
+
+.btn {
+    color: orange;
+}

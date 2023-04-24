@@ -2,6 +2,12 @@ import { useEffect, useState } from "react";
 import request from "../services/api.request";
 import Nav from "./Nav";
 import Card from "react-bootstrap/Card";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import InputGroup from "react-bootstrap/InputGroup";
+import Form from "react-bootstrap/Form";
+import { Button } from "bootstrap";
 
 function Muscles(props) {
   const [muscle, setMuscle] = useState([]);
@@ -77,65 +83,106 @@ function Muscles(props) {
   return (
     <>
       <Nav />
-      <Card>
-        <Card.Body>
-          <h4>SELECT A MUSCLE GROUP</h4>
-        </Card.Body>
+      <Container className="select">
+        <Row className="row">
+          <Col>
+            <Card border="light" className="row">
+              {"\u00A0"}
+              <h4>SELECT A MUSCLE GROUP</h4>
+              <Card.Body></Card.Body>
 
-        {muscle.map((musc) => (
-          <button
-            key={musc.id}
-            onClick={() => handleMuscleGroupClick(musc.name)}
-          >
-            {" "}
-            <p> {musc.name} </p>{" "}
-          </button>
-        ))}
-        </Card>
-      {selectMuscle && (
-        <Card>
-          <Card.Body>
-            <h3>SELECT AN EXERCISE</h3>.
-          </Card.Body>
+              {muscle.map((musc) => (
+                <button
+                  className="btn btn-outline-dark button btn-lg"
+                  key={musc.id}
+                  onClick={() => handleMuscleGroupClick(musc.name)}
+                >
+                  {" "}
+                  <p> {musc.name} </p>{" "}
+                </button>
+              ))}
+            </Card>
+            {"\u00A0"}
+            {selectMuscle && (
+              <Card border="light" className="row">
+                <Card.Body>
+                  <h3>SELECT AN EXERCISE</h3>
+                </Card.Body>
 
-          {exercise
-            .filter((e) => e.muscles.some((m) => m.name === selectMuscle))
-            .map((exercise) => (
-              <button
-                size="lg"
-                key={exercise.id}
-                onClick={() => handleExerciseClick(exercise)}
-              >
-                <p>{exercise.name}</p>
-              </button>
+                {exercise
+                  .filter((e) => e.muscles.some((m) => m.name === selectMuscle))
+                  .map((exercise) => (
+                    <button
+                      className="btn btn-outline-dark button btn-lg"
+                      size="lg"
+                      key={exercise.id}
+                      onClick={() => handleExerciseClick(exercise)}
+                    >
+                      <p>{exercise.name}</p>
+                    </button>
+                  ))}
+              </Card>
+            )}
+            {"\u00A0"}
+            {selectedExercises.map((exercise) => (
+              <Card key={exercise.id} border="light" className="row">
+                <button
+                  className="btn btn-outline-dark button btn-lg"
+                  onClick={() => RemoveExercise(exercise.id)}
+                >
+                  {exercise.name}
+                </button>
+              </Card>
             ))}
-        </Card>
-      )}
+            <Card border="light" className="row">
+              {selectMuscle && !props.name && (
+                <Card.Body>
+                  {/* <label htmlFor="workout-name"></label>
+                <InputGroup id="inputGroup-sizing-sm">
+                <input
+                className="input"
+                type="text"
+                id="workout-name"
+                name="workout-name"
+                placeholder="Enter Workout Name"
+                value={workoutName}
+                onChange={handleWorkoutNameChange}
+                />
+                
+                <button
+                id="button-addon1"
+                className="btn btn-outline-dark button btn-lg"
+                onClick={handleSaveWorkout}
+                >
+                    Save Workout
+                  </button>
+                </InputGroup> */}
 
-      {"\u00A0"}
-      {selectedExercises.map((exercise) => (
-        <Card key={exercise.id}>
-          <button onClick={() => RemoveExercise(exercise.id)}>
-            {exercise.name}
-          </button>
-        </Card>
-      ))}
-      <Card>
-        {selectMuscle && !props.name && (
-          <Card.Body>
-            <label htmlFor="workout-name">Workout Name:</label>
-
-            <input
-              type="text"
-              id="workout-name"
-              name="workout-name"
-              value={workoutName}
-              onChange={handleWorkoutNameChange}
-            />
-            <button onClick={handleSaveWorkout}>Save Workout</button>
-          </Card.Body>
-        )}
-      </Card>
+                  <InputGroup className="mb-3">
+                    <Form.Control
+                      className="input"
+                      placeholder="Name Workout"
+                      aria-label="Workout Name"
+                      aria-describedby="basic-addon2"
+                      value={workoutName}
+                      onChange={handleWorkoutNameChange}
+                    />
+                    <button
+                      className="btn btn-outline-dark button btn-lg"
+                      variant="outline-secondary"
+                      id="button-addon2"
+                      onClick={handleSaveWorkout}
+                    >
+                      SAVE
+                    </button>
+                  </InputGroup>
+                </Card.Body>
+              )}
+            </Card>
+            {/* <Col>1 of 3</Col> */}
+          </Col>
+        </Row>
+      </Container>
     </>
   );
 }
