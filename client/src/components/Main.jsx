@@ -20,14 +20,14 @@ function Main() {
             <Card border="none" className="row">
               <Card.Body className="mainButtons">
                 <Link to="/exercises">
-                  <button className="btn btn2 btn-outline-dark button btn-lg">
+                  <button className="btn btn4 btn-outline-dark button btn-lg">
                     {" "}
                     NEW WORKOUT{" "}
                   </button>
                 </Link>
 
                 <Link to="/favorites">
-                  <button className="btn btn2 btn-outline-dark button btn-lg">
+                  <button className="btn btn4 btn-outline-dark button btn-lg">
                     {" "}
                     FAVORITES{" "}
                   </button>

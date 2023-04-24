@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import request from "../services/api.request";
 import Nav from "./Nav";
 import Card from "react-bootstrap/Card";
@@ -76,11 +77,11 @@ function Muscles(props) {
     };
     await request(config);
     toast("SAVED!", {
-      icon: "👏",
+      icon: "💪",
       style: {
-        borderRadius: "50px",
-        background: "#333",
-        color: "#fff",
+        background: "orange",
+        color: "Black",
+        padding: "25px",
       },
     });
     setWorkoutName("");
@@ -129,7 +130,7 @@ function Muscles(props) {
 
               {muscle.map((musc) => (
                 <button
-                  className="btn btn-outline-dark button btn-lg mb-2"
+                  className="btn btn3 btn-outline-dark button btn-lg mb-2"
                   key={musc.id}
                   onClick={() => handleMuscleGroupClick(musc.name)}
                 >
@@ -149,7 +150,7 @@ function Muscles(props) {
                   .filter((e) => e.muscles.some((m) => m.name === selectMuscle))
                   .map((exercise) => (
                     <button
-                      className={`btn btn-outline-dark button btn-lg mb-2 ${
+                      className={`btn btn3 btn-outline-dark button btn-lg mb-2 ${
                         selectedExercises.find((ex) => ex.id === exercise.id)
                           ? "active"
                           : ""
@@ -175,7 +176,7 @@ function Muscles(props) {
             {selectedExercises.map((exercise) => (
               <Card key={exercise.id} border="none" className="row">
                 <button
-                  className="btn btn-outline-dark button btn-lg mb-2"
+                  className="btn btn3 btn-outline-dark button btn-lg mb-2"
                   onClick={() => RemoveExercise(exercise.id)}
                 >
                   {exercise.name}
@@ -189,19 +190,23 @@ function Muscles(props) {
                   <InputGroup className="mb-3">
                     <Form.Control
                       className="input"
+                      raf
                       placeholder="Name"
                       aria-label="Workout Name"
                       aria-describedby="basic-addon2"
                       value={workoutName}
                       onChange={handleWorkoutNameChange}
                     />
+                    {/* <Link to="/favorites"> */}
+
                     <button
-                      className="btn btn-outline-dark button btn-lg"
+                      className="btn btn5 btn-outline-dark button btn-lg"
                       id="button-addon2"
                       onClick={handleSaveWorkout}
-                    >
+                      >
                       SAVE
                     </button>
+                      {/* </Link> */}
                   </InputGroup>
                 </Card.Body>
               </Card>

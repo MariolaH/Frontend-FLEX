@@ -19,17 +19,42 @@
 
 .btn {
   color: orange;
-  font-size: 15px;
+  font-size: 25px;
   border-color: grey;
   font-family: monospace;
   min-width: 110px;
 }
 
 .btn2 {
-  background-color: orange;
-  color: black;
+    background-color: orange;
+    color: black;
+    font-size: 25px;
+    font-family: monospace;
+    font-weight: 700;
+}
+
+.btn3 {
+   color: orange;
   font-size: 15px;
+  border-color: grey;
   font-family: monospace;
+  min-width: 110px;
+}
+
+.btn4 {
+    background-color: orange;
+    color: black;
+    font-size: 15px;
+    font-family: monospace;
+    font-weight: 700;
+}
+
+.btn5 {
+    background-color: orange;
+    color: black;
+    font-size: 18px;
+    font-family: monospace;
+    font-weight: 700;
 }
 
 body {

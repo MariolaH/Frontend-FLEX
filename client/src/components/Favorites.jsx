@@ -34,11 +34,13 @@ function Favorites() {
     };
     let response = await request(config);
     setFavorite(favorite.filter((item) => item.id !== favId));
-      toast("YOUR WORKOUT HAS BEEN DELETED!", {
+      toast("WORKOUT DELETED! 💪 ", {
         style: {
-          borderRadius: "50px",
-          background: "#333",
-          color: "#fff",
+          // borderRadius: "50px",
+          icon: "💪",
+          background: "orange",
+          color: "Black",
+          padding: "25px",
         },
       });
   };
@@ -72,7 +74,7 @@ function Favorites() {
                         </div>
                         <div className="p-2">
                           <button
-                            className="btn btn2 btn-outline-dark button btn-sm me-2"
+                            className="btn btn4 btn-outline-dark button btn-sm me-2"
                             key={fav.id}
                             onClick={() => deleteItem(fav.id)}
                           >
@@ -80,7 +82,7 @@ function Favorites() {
                           </button>
                           <Link to={`/workout/edit/${fav.id}`}>
                             <button
-                              className="btn btn-outline-light button btn-sm ms-2"
+                              className="btn btn3 btn-outline-light button btn-sm ms-2"
                               style={{ outline: "none" }}
                               key={fav.id}
                             >
