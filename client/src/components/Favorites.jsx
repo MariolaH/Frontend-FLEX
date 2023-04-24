@@ -4,8 +4,10 @@ import { useGlobalState } from "../context/GlobalState";
 import request from "../services/api.request";
 import { Link } from "react-router-dom";
 import Card from "react-bootstrap/Card";
-import ListGroup from "react-bootstrap/ListGroup";
 import React from "react";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 
 function Favorites() {
   const [favorite, setFavorite] = useState([]);
@@ -21,17 +23,17 @@ function Favorites() {
       let response = await request(config);
       setFavorite(response.data);
     };
-    getFavorite();    
+    getFavorite();
   }, []);
-  
-    const deleteItem = async (favId) => {
-      let config = {
-        url: `/workout/${favId}`,
-        method: "delete",
-      };
-      let response = await request(config);
-      setFavorite(favorite.filter(item => item.id !== favId))
+
+  const deleteItem = async (favId) => {
+    let config = {
+      url: `/workout/${favId}`,
+      method: "delete",
     };
+    let response = await request(config);
+    setFavorite(favorite.filter((item) => item.id !== favId));
+  };
 
   return (
     //     <Card style={{ width: "18rem" }}>
@@ -66,57 +68,61 @@ function Favorites() {
 
     <div>
       <Nav />
-      <Card style={{ width: "18rem" }}>
-        <ListGroup variant="flush">
-          {favorite.length > 0 &&
-            favorite.map((fav) => (
-              <h3> <ListGroup.Item>
-                  <Link
-                    to={`/workout/${fav.id}`}
-                    // className="btn btn-outline-dark button btn-lg"
-                  >
-                    <button
-                      className="btn btn-outline-dark button btn-lg"
-                      key={fav.id}
-                    >
-                      {fav.name}
-                    </button>
-                  </Link>
-                </ListGroup.Item>
-                <ListGroup.Item>
-                  <button
-                    className="btn btn-outline-dark button btn-lg"
-                    key={fav.id}
-                    onClick={() => deleteItem(fav.id)}
-                  >
-                    DELETE
-                  </button>
-
-                  <Link
-                    to={`/modify/${fav.id}`}
-                    // className="btn btn-outline-dark button btn-lg"
-                  >
-                    <button
-                      className="btn btn-outline-dark button btn-lg"
-                      style={{ outline: "none" }}
-                      key={fav.id}
-                    >
-                      MODIFY
-                    </button>
-                  </Link>
-                </ListGroup.Item>
-              </h3>
-            ))}
-        </ListGroup>
-      </Card>
+      <Container className="select">
+        <Row className="row">
+          <Col>
+            <Card border="light" className="row">
+              {favorite.length > 0 &&
+                favorite.map((fav) => (
+                  <h3>
+                    <Link to={`/workout/${fav.id}`}>
+                      <Card.Body>
+                        {" "}
+                        <button
+                          className="btn btn-outline-dark button btn-lg"
+                          key={fav.id}
+                        >
+                          {fav.name}
+                        </button>
+                      </Card.Body>
+                    </Link>
+                    <Card border="none" className="row">
+                      <Card.Body>
+                        {" "}
+                        <button
+                          className="btn btn-outline-dark button btn-lg"
+                          key={fav.id}
+                          onClick={() => deleteItem(fav.id)}
+                        >
+                          DELETE
+                        </button>
+                        <Link to={`/workout/edit/${fav.id}`}>
+                          <button
+                            className="btn btn-outline-dark button btn-lg"
+                            style={{ outline: "none" }}
+                            key={fav.id}
+                          >
+                            MODIFY
+                          </button>
+                        </Link>
+                      </Card.Body>
+                    </Card>
+                  </h3>
+                ))}
+            </Card>
+          </Col>
+        </Row>
+      </Container>
     </div>
   );
 }
 
 
 
+
+
 //     <div>
-//       <Nav />   
+//       <Nav />
 //  {favorite.length > 0 &&
 //         favorite.map((fav) => (
 //           <h3>
@@ -136,7 +142,7 @@ function Favorites() {
 //               </Card.Body>{" "}
 //               <Card.Body>
 //                 <Link
-//                   to={`/modify/${fav.id}`}
+//                   to={`/workout/edit/${fav.id}`}
 //                   className="btn btn-outline-dark button btn-lg"
 //                 >
 //                   <button key={fav.id}>MODIFY</button>

@@ -7,8 +7,13 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import InputGroup from "react-bootstrap/InputGroup";
 import Form from "react-bootstrap/Form";
+import { useParams } from "react-router-dom";
+// import toast, { Toaster } from "react-hot-toast";
 
 function Muscles(props) {
+  const { workoutId } = useParams();
+  console.log("ID FROM URL", workoutId);
+
   const [muscle, setMuscle] = useState([]);
   const [exercise, setExercise] = useState([]);
   const [selectMuscle, setSelectMuscle] = useState("");
@@ -16,6 +21,7 @@ function Muscles(props) {
   const [workoutName, setWorkoutName] = useState("");
   // const [remove, setRemove]=useState([])
 
+  // Initial GET requests for Exercises/Muscle Groups
   useEffect(() => {
     const getMuscle = async () => {
       let config = {
@@ -38,11 +44,31 @@ function Muscles(props) {
     getExercise();
   }, []);
 
+  useEffect(() => {
+    const getWorkoutExercises = async () => {
+      let config = {
+        url: `/workout/${workoutId}`,
+        method: "get",
+      };
+      let response = await request(config);
+      setWorkoutName(response.data.name);
+      setSelectedExercises(response.data.exercises);
+    };
+
+    if (workoutId) {
+      getWorkoutExercises();
+    } else {
+      setSelectedExercises([]);
+      setWorkoutName("");
+      setSelectMuscle("");
+    }
+  }, [workoutId]);
+
   const handleSaveWorkout = async () => {
     console.log(selectedExercises);
     let config = {
-      url: "/workout/",
-      method: "post",
+      url: workoutId ? `/workout/${workoutId}/` : "/workout/",
+      method: workoutId ? "patch" : "post",
       data: {
         name: workoutName,
         exercises: selectedExercises.map((e) => e.id),
@@ -79,13 +105,14 @@ function Muscles(props) {
     setWorkoutName(event.target.value);
   };
 
+  // const notify = () => toast("Workout Save!");
   return (
     <>
       <Nav />
-      <Container className="select">
+      <Container className="select rounded-2xl">
         <Row className="row">
           <Col>
-            <Card border="light" className="row">
+            <Card border="secondary" className="row">
               {"\u00A0"}
               <h5>SELECT A MUSCLE GROUP</h5>
               {/* <Card.Body></Card.Body> */}
@@ -103,7 +130,7 @@ function Muscles(props) {
             </Card>
             {"\u00A0"}
             {selectMuscle && (
-              <Card border="light" className="row">
+              <Card border="none" className="row">
                 <Card.Body>
                   <h5>SELECT AN EXERCISE</h5>
                 </Card.Body>
@@ -112,7 +139,11 @@ function Muscles(props) {
                   .filter((e) => e.muscles.some((m) => m.name === selectMuscle))
                   .map((exercise) => (
                     <button
-                      className="btn btn-outline-dark button btn-lg"
+                      className={`btn btn-outline-dark button btn-lg ${
+                        selectedExercises.find((ex) => ex.id === exercise.id)
+                          ? "active"
+                          : ""
+                      }`}
                       size="lg"
                       key={exercise.id}
                       onClick={() => handleExerciseClick(exercise)}
@@ -134,8 +165,8 @@ function Muscles(props) {
               </Card>
             ))}
             {"\u00A0"}
-            <Card border="light" className="row">
-              {selectMuscle && !props.name && (
+            {selectMuscle && !props.name && (
+              <Card border="light" className="row">
                 <Card.Body>
                   <InputGroup className="mb-3">
                     <Form.Control
@@ -151,13 +182,14 @@ function Muscles(props) {
                       variant="outline-secondary"
                       id="button-addon2"
                       onClick={handleSaveWorkout}
+                      // onClick={notify}
                     >
                       SAVE
                     </button>
                   </InputGroup>
                 </Card.Body>
-              )}
-            </Card>
+              </Card>
+            )}
             {/* <Col>1 of 3</Col> */}
           </Col>
         </Row>

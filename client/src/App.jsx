@@ -6,8 +6,6 @@ import Muscles from "./components/muscles";
 import Main from "./components/Main";
 import "./style/style.css";
 import View from "./components/View";
-import Modify from "./components/Modify";
-
 
 function App() {
   return (
@@ -21,9 +19,8 @@ function App() {
       <Route path="/login" element={<Muscles />} />
       <Route path="/exercises" element={<Muscles />} />
       <Route path="/favorites" element={<Favorites />} />
-      <Route path="/new" element={<Muscles />} />
+      <Route path="/workout/edit/:workoutId?" element={<Muscles />} />
       <Route path="/workout/:id" element={<View />} />
-      <Route path="/modify/:id" element={<Modify />} />
     </Routes>
     // </>
   );

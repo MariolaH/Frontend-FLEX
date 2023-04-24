@@ -1,9 +1,6 @@
 import React, { useState } from "react";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Link,
-} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Link } from "react-router-dom";
+import AuthService from "../services/auth.service";
 
 function Nav() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -32,21 +29,19 @@ function Nav() {
               </Link>
             </li>
             <li>
-              <Link to="/new" onClick={handleMenuToggle}>
+              <Link to="/workout/edit" onClick={handleMenuToggle}>
                 NEW WORKOUT
               </Link>
-              </li>
-              
-              <Link to="/home" onClick={handleMenuToggle}>
-                LOG OUT
-              </Link>
+            </li>
+
+            <Link to="/home" onClick={handleMenuToggle}>
+              LOG OUT
+            </Link>
           </ul>
         </nav>
       )}
-   
     </div>
   );
 }
-
 
 export default Nav;
