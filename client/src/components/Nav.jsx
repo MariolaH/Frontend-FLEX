@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Link } from "react-router-dom";
 import AuthService from "../services/auth.service";
 
+
 function Nav() {
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -12,29 +13,50 @@ function Nav() {
   return (
     <div>
       <header>
-        <button onClick={handleMenuToggle}>☰</button>
+        <button
+          className="btn btn-outline-dark button btn-lg"
+          onClick={handleMenuToggle}
+        >
+          ☰
+        </button>
       </header>
       {menuOpen && (
         <nav>
           <ul>
             <li>
-              <Link to="/main" onClick={handleMenuToggle}>
-                Home
+              <Link
+                className="btn btn-outline-dark button btn-lg"
+                to="/main"
+                onClick={handleMenuToggle}
+              >
+                HOME
               </Link>
             </li>
 
             <li>
-              <Link to="/favorites" onClick={handleMenuToggle}>
+              <Link
+                className="btn btn-outline-dark button btn-lg"
+                to="/favorites"
+                onClick={handleMenuToggle}
+              >
                 FAVORITES
               </Link>
             </li>
             <li>
-              <Link to="/workout/edit" onClick={handleMenuToggle}>
+              <Link
+                className="btn btn-outline-dark button btn-lg"
+                to="/workout/edit"
+                onClick={handleMenuToggle}
+              >
                 NEW WORKOUT
               </Link>
             </li>
 
-            <Link to="/home" onClick={handleMenuToggle}>
+            <Link
+              className="btn btn-outline-dark button btn-lg"
+              to="/home"
+              onClick={handleMenuToggle}
+            >
               LOG OUT
             </Link>
           </ul>
@@ -43,5 +65,9 @@ function Nav() {
     </div>
   );
 }
+
+
+
+
 
 export default Nav;

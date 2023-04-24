@@ -3,6 +3,8 @@ import AuthService from "../services/auth.service";
 import { useNavigate } from "react-router-dom";
 import { useGlobalState } from "../context/GlobalState";
 import jwtDecode from "jwt-decode";
+import InputGroup from "react-bootstrap/InputGroup";
+import Form from "react-bootstrap/Form";
 
 
 const Login = () => {
@@ -40,7 +42,7 @@ const Login = () => {
           />
         </div>
         <div>
-          <label htmlFor="pass">Password</label>
+          <label htmlFor="pass">Password:</label>
           <input
             type="password"
             id="pass"
@@ -50,9 +52,16 @@ const Login = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-        <input type="submit" value="Sign in" />
+        <input
+          className="btn btn-outline-dark button btn-lg"
+          type="submit"
+          value="Sign in"
+        />
       </form>
     </div>
+
+   
+         
   );
 };
 

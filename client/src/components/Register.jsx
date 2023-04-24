@@ -94,6 +94,7 @@ const Register = () => {
         </div>
 
         <input
+          className="btn btn-outline-dark button btn-lg"
           type="submit"
           value="Register"
           disable={
