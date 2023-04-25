@@ -22,6 +22,7 @@
   font-size: 25px;
   border-color: grey;
   font-family: monospace;
+  
   min-width: 110px;
 }
 
@@ -47,7 +48,7 @@
 
 .muscleBtn {
   color: rgb(241, 135, 6);
-  font-size: 15px;
+  font-size: 17px;
   border-color: grey;
   font-family: monospace;
   min-width: 140px;
@@ -108,18 +109,37 @@ li {
 
 .mainHeader {
   color: rgb(241, 135, 6);
-  text-align: center;
+  /* text-align: center; */
   font-size: 50px;
   font-family: monospace;
   padding-bottom: 10px;
 }
 
+.navHeader{
+  color: rgb(241, 135, 6);
+  font-size: 22px;
+  font-family: monospace;
+  padding-bottom: 10px;
+  padding-top: 15px;
+  padding-left: 10px;
+  
+}
+
+.imgNav {
+  height: 50px;
+  justify-content: left;
+}
+
+/* .navTop{
+  background-color: rgb(6, 6, 6);
+} */
+
 .navSubheader {
   color: whitesmoke;
-  text-align: center;
-  font-size: 25px;
+  /* text-align: center; */
+  font-size: 22px;
   font-family: monospace;
-  padding-left: 60px;
+  padding-bottom: 30px;
 }
 
 .img {

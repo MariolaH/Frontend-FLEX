@@ -38,8 +38,9 @@ function Nav2() {
   return (
     <>
       {[false].map((expand) => (
-        <Navbar key={expand} bg="dark" expand={expand} className="mb-3">
+        <Navbar key={expand} bg='dark' expand={expand} className="navTop mb-3">
           <Container fluid>
+            <h2 className="navHeader">FLEX</h2>
             <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
             <Navbar.Offcanvas
               id={`offcanvasNavbar-expand-${expand}`}
