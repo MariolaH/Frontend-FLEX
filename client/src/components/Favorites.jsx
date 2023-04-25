@@ -34,14 +34,12 @@ function Favorites() {
     };
     let response = await request(config);
     setFavorite(favorite.filter((item) => item.id !== favId));
-      toast("💪 WORKOUT DELETED! 💪 ", {
+      toast(" WORKOUT DELETED! ", {
         style: {
-          // borderRadius: "50px",
-          // icon: "💪",
-          background: "white",
+          background: "#f18706",
           color: "Black",
-          padding: "25px",
-          border: "10px solid orange",
+          padding: "15px",
+          border: "10px solid #f18706",
         },
       });
   };

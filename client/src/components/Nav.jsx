@@ -23,6 +23,7 @@ function Nav2() {
               </Offcanvas.Header>
               <Offcanvas.Body>
                 <Nav className="justify-content-end flex-grow-1 pe-3">
+                  {/* <h3> Hello, ${state.currentUser.username} </h3> */}
                   <Nav.Link
                     className="btn btn2 btn-outline-dark button btn-lg mb-3"
                     href="/main"

@@ -7,6 +7,7 @@ import React from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import { Link } from "react-router-dom";
 
 function View() {
   const { id } = useParams();
@@ -33,13 +34,19 @@ function View() {
         <Row className="row">
           <Col>
             <Card border="none" className="row" style={{ textAlign: "center" }}>
-              <h1 className="h1View">
-                {workoutName}
-              </h1>
+              <h1 className="h1View">{workoutName}</h1>
 
               {exercises?.map((exercise) => (
                 <p key={exercise.id}>{exercise.name}</p>
               ))}
+              {"\u00A0"}
+              {"\u00A0"}
+              
+              <Link to="/favorites">
+                <button className="btn btn4 btn-outline-dark button btn-sm">
+                  FAVORITES
+                </button>
+              </Link>
             </Card>
           </Col>
         </Row>
