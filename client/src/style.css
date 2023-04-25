@@ -18,7 +18,7 @@
 }
 
 .btn {
-  color: orange;
+  color: rgb(241, 135, 6);
   font-size: 25px;
   border-color: grey;
   font-family: monospace;
@@ -26,7 +26,7 @@
 }
 
 .btn2 {
-    background-color: orange;
+    background-color: rgb(241, 135, 6);
     color: black;
     font-size: 25px;
     font-family: monospace;
@@ -35,7 +35,7 @@
 }
 
 .btn3 {
-   color: orange;
+   color: rgb(241, 135, 6);
   font-size: 15px;
   border-color: grey;
   font-family: monospace;
@@ -43,7 +43,7 @@
 }
 
 .btn4 {
-    background-color: orange;
+    background-color: rgb(241, 135, 6);
     color: black;
     font-size: 15px;
     font-family: monospace;
@@ -52,7 +52,7 @@
 }
 
 .btn5 {
-    background-color: orange;
+    background-color: rgb(241, 135, 6);
     color: black;
     font-size: 18px;
     font-family: monospace;
@@ -78,7 +78,7 @@ li {
 }
 
 .mainHeader {
-  color: orange;
+  color: rgb(241, 135, 6);
   text-align: center;
   font-size: 50px;
   font-family: monospace;
