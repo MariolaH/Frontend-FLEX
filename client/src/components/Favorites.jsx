@@ -66,7 +66,7 @@ function Favorites() {
                           <Link to={`/workout/${fav.id}`}>
                             {" "}
                             <button
-                              className="btn btn-outline-dark button btn-lg"
+                              className="btn btn3 btn-outline-dark button btn-sm"
                               key={fav.id}
                             >
                               {fav.name}
@@ -83,7 +83,7 @@ function Favorites() {
                           </button>
                           <Link to={`/workout/edit/${fav.id}`}>
                             <button
-                              className="btn btn3 btn-outline-light button btn-sm ms-2"
+                              className="btn btn3 btn-outline-dark button btn-sm ms-2"
                               style={{ outline: "none" }}
                               key={fav.id}
                             >
