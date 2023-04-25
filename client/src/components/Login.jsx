@@ -3,9 +3,6 @@ import AuthService from "../services/auth.service";
 import { useNavigate } from "react-router-dom";
 import { useGlobalState } from "../context/GlobalState";
 import jwtDecode from "jwt-decode";
-import InputGroup from "react-bootstrap/InputGroup";
-import Form from "react-bootstrap/Form";
-
 
 
 const Login = () => {
@@ -26,7 +23,6 @@ const Login = () => {
         currentUser: data,
         
       });
-      
       navigate("/main");
     });
     

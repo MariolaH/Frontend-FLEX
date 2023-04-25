@@ -41,9 +41,9 @@ function View() {
               ))}
               {"\u00A0"}
               {"\u00A0"}
-              
+
               <Link to="/favorites">
-                <button className="btn btn4 btn-outline-dark button btn-sm">
+                <button className="btn btn4 btn-outline-dark rounded-pill button btn-sm">
                   FAVORITES
                 </button>
               </Link>

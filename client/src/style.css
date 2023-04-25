@@ -26,37 +26,66 @@
 }
 
 .btn2 {
-    background-color: rgb(241, 135, 6);
-    color: black;
-    font-size: 25px;
-    font-family: monospace;
-    font-weight: 700;
-    border-color: black;
+  background-color: rgb(241, 135, 6);
+  color: black;
+  font-size: 25px;
+  font-family: monospace;
+  font-weight: 700;
+  border-color: black;
 }
 
 .btn3 {
-   color: rgb(241, 135, 6);
+  color: rgb(241, 135, 6);
   font-size: 15px;
   border-color: grey;
   font-family: monospace;
-  min-width: 110px;
+  min-width: 140px;
+  /* max-height: 63px; */
+  min-height: 50px;
+  vertical-align: middle;
+}
+
+.muscleBtn {
+  color: rgb(241, 135, 6);
+  font-size: 15px;
+  border-color: grey;
+  font-family: monospace;
+  min-width: 140px;
+  /* max-height: 63px; */
+  min-height: 50px;
+  vertical-align: middle;
+  padding-top: 25px;
 }
 
 .btn4 {
-    background-color: rgb(241, 135, 6);
-    color: black;
-    font-size: 15px;
-    font-family: monospace;
-    font-weight: 700;
-    border-color: black;
+  background-color: rgb(241, 135, 6);
+  color: black;
+  font-size: 15px;
+  font-family: monospace;
+  font-weight: 700;
+  border-color: black;
+  min-width: 140px;
+  margin: 10px;
+  min-height: 50px;
 }
 
 .btn5 {
-    background-color: rgb(241, 135, 6);
-    color: black;
-    font-size: 18px;
-    font-family: monospace;
-    font-weight: 700;
+  background-color: rgb(241, 135, 6);
+  color: black;
+  font-size: 18px;
+  font-family: monospace;
+  font-weight: 700;
+}
+
+.btn6 {
+  color: rgb(241, 135, 6);
+  font-size: 15px;
+  border-color: grey;
+  font-family: monospace;
+  /* min-width: 140px; */
+  /* max-height: 63px; */
+
+
 }
 
 body {
@@ -83,6 +112,14 @@ li {
   font-size: 50px;
   font-family: monospace;
   padding-bottom: 10px;
+}
+
+.navSubheader {
+  color: whitesmoke;
+  text-align: center;
+  font-size: 25px;
+  font-family: monospace;
+  padding-left: 60px;
 }
 
 .img {

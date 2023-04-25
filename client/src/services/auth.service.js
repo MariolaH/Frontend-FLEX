@@ -48,7 +48,7 @@ class AuthService {
         },
       });
 
-      await this.login(username, password);
+      return await this.login(username, password);
     } catch (error) {
       return error.response;
     }

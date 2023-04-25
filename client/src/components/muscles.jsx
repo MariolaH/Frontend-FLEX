@@ -136,7 +136,7 @@ function Muscles(props) {
 
               {muscle.map((musc) => (
                 <button
-                  className="btn btn3 btn-outline-dark button btn-lg mb-2"
+                  className="btn muscleBtn btn-outline-dark button rounded-pill btn-lg mb-2 align-bottom"
                   key={musc.id}
                   onClick={() => handleMuscleGroupClick(musc.name)}
                 >
@@ -156,7 +156,7 @@ function Muscles(props) {
                   .filter((e) => e.muscles.some((m) => m.name === selectMuscle))
                   .map((exercise) => (
                     <button
-                      className={`btn btn3 btn-outline-dark button btn-lg mb-2 ${
+                      className={`btn muscleBtn btn-outline-dark button rounded-pill btn-lg mb-2 ${
                         selectedExercises.find((ex) => ex.id === exercise.id)
                           ? "active"
                           : ""
@@ -183,7 +183,7 @@ function Muscles(props) {
             {selectedExercises.map((exercise) => (
               <Card key={exercise.id} border="none" className="row">
                 <button
-                  className="btn btn3 btn-outline-dark button btn-lg mb-2"
+                  className="btn btn3 btn-outline-dark button rounded-pill btn-lg mb-2"
                   onClick={() => RemoveExercise(exercise.id)}
                 >
                   {exercise.name}
@@ -207,7 +207,7 @@ function Muscles(props) {
                     {/* <Link to="/favorites"> */}
 
                     <button
-                      className="btn btn5 btn-outline-dark button btn-lg"
+                      className="btn btn6 btn-outline-dark button btn-lg"
                       id="button-addon2"
                       onClick={handleSaveWorkout}
                     >

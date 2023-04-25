@@ -64,7 +64,7 @@ function Favorites() {
                           <Link to={`/workout/${fav.id}`}>
                             {" "}
                             <button
-                              className="btn btn3 btn-outline-dark button btn-sm"
+                              className="btn btn3 btn-outline-dark button rounded-pill btn-sm"
                               key={fav.id}
                             >
                               {fav.name}
@@ -73,7 +73,7 @@ function Favorites() {
                         </div>
                         <div className="p-2">
                           <button
-                            className="btn btn4 btn-outline-dark button btn-sm me-2"
+                            className="btn btn4 btn-outline-dark button rounded-pill btn-sm me-2"
                             key={fav.id}
                             onClick={() => deleteItem(fav.id)}
                           >
@@ -81,7 +81,7 @@ function Favorites() {
                           </button>
                           <Link to={`/workout/edit/${fav.id}`}>
                             <button
-                              className="btn btn3 btn-outline-dark button btn-sm ms-2"
+                              className="btn btn3 btn-outline-dark button rounded-pill btn-sm ms-2"
                               style={{ outline: "none" }}
                               key={fav.id}
                             >

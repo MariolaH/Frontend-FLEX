@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import AuthService from "../services/auth.service";
 import { useNavigate } from "react-router-dom";
-
+import { useGlobalState } from "../context/GlobalState";
+import jwtDecode from "jwt-decode";
 
 const Register = () => {
   let navigate = useNavigate();
+  let [, dispatch] = useGlobalState();
 
   const [user, setUser] = useState({
     username: "",
@@ -22,10 +24,16 @@ const Register = () => {
     });
   };
 
-  const handleRegister = (e) => {
+  const handleRegister = async (e) => {
     e.preventDefault();
-    AuthService.register(user);
-    navigate("/exercises");
+    await AuthService.register(user).then(async (resp) => {
+      let data = jwtDecode(resp.access);
+      await dispatch({
+        currentUserToken: resp.access,
+        currentUser: data,
+      });
+      navigate("/exercises");
+    });
   };
 
   return (
