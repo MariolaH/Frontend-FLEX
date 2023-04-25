@@ -24,7 +24,9 @@ const Login = () => {
       await dispatch({
         currentUserToken: resp.access,
         currentUser: data,
+        
       });
+      
       navigate("/main");
     });
     
@@ -32,7 +34,6 @@ const Login = () => {
 
   return (
     <div className="c-form">
-
       <form onSubmit={handleLogin}>
         <div className="login">
           {/* <label htmlFor="username">Username:</label> */}

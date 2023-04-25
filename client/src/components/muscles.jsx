@@ -11,6 +11,7 @@ import Form from "react-bootstrap/Form";
 import { useParams } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
 
+
 function Muscles(props) {
   const { workoutId } = useParams();
   console.log("ID FROM URL", workoutId);
@@ -76,14 +77,16 @@ function Muscles(props) {
       },
     };
     await request(config);
-    toast("SAVED!", {
-      icon: "💪",
+    toast("💪 SAVED! 💪 ", {
+      // icon: "💪",
       style: {
-        background: "orange",
+        background: "white",
         color: "Black",
         padding: "25px",
+        border: "10px solid orange",
       },
     });
+    window.scrollTo(0, 0);
     setWorkoutName("");
     setSelectMuscle("");
     setSelectedExercises([]);
@@ -203,10 +206,11 @@ function Muscles(props) {
                       className="btn btn5 btn-outline-dark button btn-lg"
                       id="button-addon2"
                       onClick={handleSaveWorkout}
-                      >
+                  
+                    >
                       SAVE
                     </button>
-                      {/* </Link> */}
+                    {/* </Link> */}
                   </InputGroup>
                 </Card.Body>
               </Card>
