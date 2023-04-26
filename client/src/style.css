@@ -1,3 +1,31 @@
+@media (max-width: 768px) {
+  .select {
+    padding: 10px;
+  }
+
+  .selectMuscle {
+    font-size: 24px;
+  }
+
+  .muscleBtn {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 768px) {
+  .select {
+    padding: 30px;
+  }
+
+  .selectMuscle {
+    font-size: 36px;
+  }
+
+  .muscleBtn {
+    font-size: 18px;
+  }
+}
+
 .input {
   background-color: rgb(6, 6, 6);
   font-family: monospace;
@@ -22,7 +50,7 @@
   font-size: 25px;
   border-color: grey;
   font-family: monospace;
-  
+
   min-width: 110px;
 }
 
@@ -33,6 +61,7 @@
   font-family: monospace;
   font-weight: 700;
   border-color: black;
+  box-shadow: 10px 5px 5px rgb(6, 6, 6);
 }
 
 .btn3 {
@@ -44,6 +73,7 @@
   /* max-height: 63px; */
   min-height: 50px;
   vertical-align: middle;
+  box-shadow: 5px 2px 2px rgb(241, 135, 6);
 }
 
 .muscleBtn {
@@ -56,6 +86,7 @@
   min-height: 50px;
   vertical-align: middle;
   padding-top: 25px;
+  box-shadow: 5px 2px 2px rgb(241, 135, 6);
 }
 
 .btn4 {
@@ -68,6 +99,7 @@
   min-width: 140px;
   margin: 10px;
   min-height: 50px;
+  /* box-shadow: 10px 5px 5px grey; */
 }
 
 .btn5 {
@@ -76,6 +108,8 @@
   font-size: 18px;
   font-family: monospace;
   font-weight: 700;
+
+  box-shadow: 10px 5px 5px grey;
 }
 
 .btn6 {
@@ -85,8 +119,20 @@
   font-family: monospace;
   /* min-width: 140px; */
   /* max-height: 63px; */
+  box-shadow: 5px 2px 2px rgb(241, 135, 6);
+}
 
+.btn7 {
+  color: rgb(241, 135, 6);
+  font-size: 15px;
+  font-family: monospace;
+  /* min-width: 140px; */
+  /* max-height: 63px; */
+  /* box-shadow: 5px 2px 2px rgb(241, 135, 6); */
+}
 
+.inputView {
+  background-color: rgb(6, 6, 6);
 }
 
 body {
@@ -115,14 +161,13 @@ li {
   padding-bottom: 10px;
 }
 
-.navHeader{
+.navHeader {
   color: rgb(241, 135, 6);
   font-size: 22px;
   font-family: monospace;
   padding-bottom: 10px;
   padding-top: 15px;
   padding-left: 10px;
-  
 }
 
 .imgNav {
@@ -163,6 +208,21 @@ li {
   padding-bottom: 20px;
 }
 
+.selectMuscleTop {
+  /* padding-top: 10px; */
+  padding-bottom: 20px;
+  font-size: 30px;
+}
+
 .login {
   padding-bottom: 3px;
+}
+
+.set {
+  font-size: 10px;
+  padding: 1px 3px !important;
+}
+
+.selectExercise {
+  padding-bottom: 30px;
 }

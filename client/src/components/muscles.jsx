@@ -20,7 +20,7 @@ function Muscles(props) {
   const [selectMuscle, setSelectMuscle] = useState("");
   const [selectedExercises, setSelectedExercises] = useState([]);
   const [workoutName, setWorkoutName] = useState("");
-  const [disabled, setDisabled] = useState(false);
+
 
   // Initial GET requests for Exercises/Muscle Groups
   useEffect(() => {
@@ -125,7 +125,7 @@ function Muscles(props) {
             <Card border="none" className="row">
               {"\u00A0"}
               {/* Maybe make this an h2 so it's noticably bigger than the h5 below? */}
-              <h2 className="selectMuscle" style={{ textAlign: "center" }}>
+              <h2 className="selectMuscleTop" style={{ textAlign: "center" }}>
                 BUILD A WORKOUT
               </h2>
               {"\u00A0"}
@@ -148,7 +148,7 @@ function Muscles(props) {
             {"\u00A0"}
             {selectMuscle && (
               <Card border="none" className="row">
-                <Card.Body>
+                <Card.Body >
                   <h5 style={{ textAlign: "center" }}>SELECT AN EXERCISE</h5>
                 </Card.Body>
                 {"\u00A0"}
@@ -164,7 +164,6 @@ function Muscles(props) {
                       size="lg"
                       key={exercise.id}
                       onClick={() => handleExerciseClick(exercise)}
-                      disabled={disabled}
                     >
                       <p>{exercise.name}</p>
                     </button>
@@ -174,7 +173,7 @@ function Muscles(props) {
             {"\u00A0"}
             {selectMuscle && (
               <>
-                <Card.Body>
+                <Card.Body className="selectExercise">
                   <h5 style={{ textAlign: "center" }}>SELECTED EXERCISES</h5>
                   {"\u00A0"}
                 </Card.Body>
@@ -204,7 +203,7 @@ function Muscles(props) {
                       value={workoutName}
                       onChange={handleWorkoutNameChange}
                     />
-                    {/* <Link to="/favorites"> */}
+                    <Link to="/favorites">
 
                     <button
                       className="btn btn6 btn-outline-dark button btn-lg"
@@ -213,7 +212,7 @@ function Muscles(props) {
                     >
                       SAVE
                     </button>
-                    {/* </Link> */}
+                    </Link>
                   </InputGroup>
                 </Card.Body>
               </Card>

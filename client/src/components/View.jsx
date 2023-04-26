@@ -8,6 +8,8 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { Link } from "react-router-dom";
+import Form from "react-bootstrap/Form";
+import InputGroup from "react-bootstrap/InputGroup";
 
 function View() {
   const { id } = useParams();
@@ -27,6 +29,43 @@ function View() {
     getWorkoutExercises();
   }, [id]);
 
+  const handleSave = async (exercise) => {
+    let config = {
+      url: `/workout-exercises/`,
+      method: "post",
+      data: {
+        sets: exercise.sets,
+        reps: exercise.reps,
+        weight: exercise.weight,
+        exercise: exercise.id,
+        workout: id,
+      },
+    };
+    let response = await request(config);
+    window.scrollTo(0, 0);
+    let newExercises = [...exercises];
+    let selectedExerciseIndex = exercises.findIndex(
+      (e) => e.id === exercise.id
+    );
+    newExercises[selectedExerciseIndex] = {
+      ...newExercises[selectedExerciseIndex],
+      recorded_data: [...newExercises[selectedExerciseIndex].recorded_data, response.data],
+    };
+    setExercises(newExercises);
+  };
+
+  const handleInputChange = (event, exerciseId) => {
+    console.log(event.target.name, event.target.value);
+    let newExercises = [...exercises];
+    let selectedExerciseIndex = exercises.findIndex((e) => e.id === exerciseId);
+
+    newExercises[selectedExerciseIndex] = {
+      ...newExercises[selectedExerciseIndex],
+      [event.target.name]: event.target.value,
+    };
+    setExercises(newExercises);
+  };
+
   return (
     <>
       <Nav />
@@ -37,11 +76,61 @@ function View() {
               <h1 className="h1View">{workoutName}</h1>
 
               {exercises?.map((exercise) => (
-                <p key={exercise.id}>{exercise.name}</p>
-              ))}
-              {"\u00A0"}
-              {"\u00A0"}
+                <>
+                  <p key={exercise?.id}>{exercise.name}</p>
+                  {exercise.recorded_data.map((e) => (
+                    <p>
+                      Set: {e.sets} Reps: {e.reps} Weight: {e.weight}
+                    </p>
+                  ))}
 
+                  <InputGroup>
+                    {/* <InputGroup.Text className="inputView" size="sm"> */}{" "}
+                    <button
+                      onClick={() => handleSave(exercise)}
+                      className="btn btn7 btn-outline-light border-secordary"
+                    >
+                      +
+                    </button>
+                    {/* </InputGroup.Text> */}
+                    <Form.Control
+                      className="set"
+                      size="sm"
+                      placeholder="sets"
+                      name="sets"
+                      defaultValue={exercise.sets}
+                      onChange={(event) =>
+                        handleInputChange(event, exercise?.id)
+                      }
+                    />
+                    <Form.Control
+                      className="set"
+                      size="sm"
+                      placeholder="reps"
+                      name="reps"
+                      defaultValue={exercise.reps}
+                      onChange={(event) =>
+                        handleInputChange(event, exercise?.id)
+                      }
+                    />
+                    <Form.Control
+                      className="set"
+                      size="sm"
+                      placeholder="lbs"
+                      name="weight"
+                      defaultValue={exercise.weight}
+                      onChange={(event) =>
+                        handleInputChange(event, exercise?.id)
+                      }
+                    />
+                  </InputGroup>
+                  {"\u00A0"}
+                  {"\u00A0"}
+                </>
+              ))}
+
+              {"\u00A0"}
+              {"\u00A0"}
               <Link to="/favorites">
                 <button className="btn btn4 btn-outline-dark rounded-pill button btn-sm">
                   FAVORITES

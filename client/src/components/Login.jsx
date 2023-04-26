@@ -56,7 +56,7 @@ const Login = () => {
           />
         </div>
         <input
-          className="btn btn4 btn-outline-dark button btn-lg"
+          className="btn btn4 btn-outline-dark button rounded-pill btn-lg"
           type="submit"
           value="Sign in"
         />
