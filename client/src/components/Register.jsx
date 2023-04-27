@@ -106,16 +106,14 @@ const Register = () => {
           className="btn btn4 btn-outline-dark button rounded-pill btn-lg"
           type="submit"
           value="Register"
-          disable={
+         disabled={(
             user.password &&
             user.password.length >= 8 &&
             user.password === user.passwordConf &&
             user.firstName &&
             user.lastName &&
             user.email
-              ? false
-              : true
-          }
+          ) ? false : true}
         />
       </form>
     </div>
