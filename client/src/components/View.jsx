@@ -26,6 +26,8 @@ function View() {
       setWorkoutName(response.data.name);
       setExercises(response.data.exercises);
     };
+    setExercises([]); 
+    setWorkoutName("");
     getWorkoutExercises();
   }, [id]);
 
@@ -41,18 +43,18 @@ function View() {
         workout: id,
       },
     };
-    let response = await request(config);
-    window.scrollTo(0, 0);
-    let newExercises = [...exercises];
-    let selectedExerciseIndex = exercises.findIndex(
-      (e) => e.id === exercise.id
-    );
-    newExercises[selectedExerciseIndex] = {
-      ...newExercises[selectedExerciseIndex],
-      recorded_data: [...newExercises[selectedExerciseIndex].recorded_data, response.data],
+      let response = await request(config);
+      let newExercises = [...exercises];
+      let selectedExerciseIndex = exercises.findIndex(
+        (e) => e.id === exercise.id
+      );
+      newExercises[selectedExerciseIndex] = {
+        ...newExercises[selectedExerciseIndex],
+        recorded_data: [...newExercises[selectedExerciseIndex].recorded_data, response.data],
+      };
+      setExercises(newExercises);
     };
-    setExercises(newExercises);
-  };
+
 
   const handleInputChange = (event, exerciseId) => {
     console.log(event.target.name, event.target.value);
@@ -80,14 +82,18 @@ function View() {
                   <p key={exercise?.id}>{exercise.name}</p>
                   {exercise.recorded_data.map((e) => (
                     <p>
-                      Set: {e.sets} Reps: {e.reps} Weight: {e.weight}
+                      Set: {e.sets} Reps: {e.reps} Weight: {e.weight}{" "}
+                      {e.created_at}
                     </p>
                   ))}
 
                   <InputGroup>
                     {/* <InputGroup.Text className="inputView" size="sm"> */}{" "}
                     <button
-                      onClick={() => handleSave(exercise)}
+                      key={exercise.id}
+                      onClick={() => {
+                        handleSave(exercise);
+                      }}
                       className="btn btn7 btn-outline-light border-secordary"
                     >
                       +

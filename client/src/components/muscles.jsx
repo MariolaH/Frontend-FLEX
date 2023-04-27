@@ -203,7 +203,7 @@ function Muscles(props) {
                       value={workoutName}
                       onChange={handleWorkoutNameChange}
                     />
-                    <Link to="/favorites">
+                    <Link to="/main">
 
                     <button
                       className="btn btn6 btn-outline-dark button btn-lg"
