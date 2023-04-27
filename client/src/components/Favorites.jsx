@@ -12,8 +12,6 @@ import toast, { Toaster } from "react-hot-toast";
 
 function Favorites() {
   const [favorite, setFavorite] = useState([]);
-  const [state, dispatch] = useGlobalState();
-  // const [remove, setRemove] = useState([]);
 
   useEffect(() => {
     const getFavorite = async () => {
@@ -34,14 +32,14 @@ function Favorites() {
     };
     let response = await request(config);
     setFavorite(favorite.filter((item) => item.id !== favId));
-      toast(" WORKOUT DELETED! ", {
-        style: {
-          background: "#f18706",
-          color: "Black",
-          padding: "15px",
-          border: "10px solid #f18706",
-        },
-      });
+    toast(" WORKOUT DELETED! ", {
+      style: {
+        background: "#f18706",
+        color: "Black",
+        padding: "15px",
+        border: "10px solid #f18706",
+      },
+    });
   };
 
   return (
@@ -57,16 +55,13 @@ function Favorites() {
               </h2>
               {favorite.length > 0 &&
                 favorite.map((fav) => (
-                  <h3>
+                  <h3 key={fav.id}>
                     <Card.Body>
                       <div className="mb-3" style={{ textAlign: "center" }}>
                         <div className="me-auto p-2">
                           <Link to={`/workout/${fav.id}`}>
                             {" "}
-                            <button
-                              className="btn btn3 btn-outline-dark button rounded-pill btn-sm"
-                              key={fav.id}
-                            >
+                            <button className="btn btn3 btn-outline-dark button rounded-pill btn-sm">
                               {fav.name}
                             </button>
                           </Link>{" "}

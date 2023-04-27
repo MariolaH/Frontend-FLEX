@@ -27,12 +27,7 @@ function View() {
       setWorkoutName(response.data.name);
       setExercises(response.data.exercises);
     };
-    // setExercises([]);
-    // setWorkoutName("");
-    // ADDED THE BELOW IF
-    // if (exercises.length === 0) {
-      getWorkoutExercises();
-    // }
+    getWorkoutExercises();
   }, [id]);
 
   const handleSave = async (exercise) => {
@@ -52,28 +47,20 @@ function View() {
     let selectedExerciseIndex = exercises.findIndex(
       (e) => e.id === exercise.id
     );
-    // ADDED THE NEXT 7 LINES
-    // let existingRecord = newExercises[selectedExerciseIndex].recorded_data.find(
-    //   (r) =>
-    //     r.sets === response.data.sets ||
-    //     r.reps === response.data.reps ||
-    //     r.weight === response.data.weight
-    // );
-    // console.log(existingRecord);
-    // if (!existingRecord) {
-      newExercises[selectedExerciseIndex] = {
-        ...newExercises[selectedExerciseIndex],
-        recorded_data: [
-          ...newExercises[selectedExerciseIndex].recorded_data,
-          response.data,
-        ],
-      };
-      setExercises(newExercises);
-    // }
+    newExercises[selectedExerciseIndex] = {
+      ...newExercises[selectedExerciseIndex],
+      recorded_data: [
+        ...newExercises[selectedExerciseIndex].recorded_data,
+        response.data,
+      ],
+    };
+    setExercises(newExercises);
+    document.getElementsByName("sets")[selectedExerciseIndex].value = "";
+    document.getElementsByName("reps")[selectedExerciseIndex].value = "";
+    document.getElementsByName("weight")[selectedExerciseIndex].value = "";
   };
 
   const handleInputChange = (event, exerciseId) => {
-    console.log(event.target.name, event.target.value);
     let newExercises = [...exercises];
     let selectedExerciseIndex = exercises.findIndex((e) => e.id === exerciseId);
 
@@ -95,17 +82,17 @@ function View() {
 
               {exercises?.map((exercise) => (
                 <>
-                  <p className="exerciseName" key={exercise?.id}>{exercise.name}</p>
+                  <p className="exerciseName" key={exercise?.id}>
+                    {exercise.name}
+                  </p>
                   {exercise.recorded_data.map((e) => (
-                    <p>
+                    <p key={e.id}>
                       Set: {e.sets} Reps: {e.reps} Weight: {e.weight}{" "}
-                      {/* {e.created_at} */}
                       {moment(e.created_at).format("MMMM D, YYYY")}
                     </p>
                   ))}
 
                   <InputGroup>
-                    {/* <InputGroup.Text className="inputView" size="sm"> */}{" "}
                     <button
                       key={exercise.id}
                       onClick={() => {
@@ -115,7 +102,6 @@ function View() {
                     >
                       +
                     </button>
-                    {/* </InputGroup.Text> */}
                     <Form.Control
                       className="set"
                       size="sm"

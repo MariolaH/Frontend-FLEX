@@ -13,8 +13,6 @@ import toast, { Toaster } from "react-hot-toast";
 
 function Muscles(props) {
   const { workoutId } = useParams();
-  console.log("ID FROM URL", workoutId);
-
   const [muscle, setMuscle] = useState([]);
   const [exercise, setExercise] = useState([]);
   const [selectMuscle, setSelectMuscle] = useState("");
@@ -65,7 +63,6 @@ function Muscles(props) {
   }, [workoutId]);
 
   const handleSaveWorkout = async () => {
-    console.log(selectedExercises);
     let config = {
       url: workoutId ? `/workout/${workoutId}/` : "/workout/",
       method: workoutId ? "patch" : "post",
@@ -123,7 +120,6 @@ function Muscles(props) {
           <Col>
             <Card border="none" className="row">
               {"\u00A0"}
-              {/* Maybe make this an h2 so it's noticably bigger than the h5 below? */}
               <h2 className="selectMuscleTop" style={{ textAlign: "center" }}>
                 BUILD A WORKOUT
               </h2>
@@ -131,8 +127,6 @@ function Muscles(props) {
               <h5 className="selectMuscle" style={{ textAlign: "center" }}>
                 SELECT A MUSCLE
               </h5>
-              {/* <Card.Body></Card.Body> */}
-
               {muscle.map((musc) => (
                 <button
                   className="btn muscleBtn btn-outline-dark button rounded-pill btn-lg mb-2 align-bottom"
@@ -169,13 +163,12 @@ function Muscles(props) {
                   ))}
               </Card>
             )}
-            {"\u00A0"}
-            {selectMuscle && (
+            {(selectMuscle || workoutId) && (
               <>
-                <Card.Body className="selectExercise">
-                  <h5 style={{ textAlign: "center" }}>SELECTED EXERCISES</h5>
-                  {"\u00A0"}
-                </Card.Body>
+                <hr />
+                <h5 style={{ textAlign: "center" }} className="pb-2">
+                  SELECTED EXERCISES
+                </h5>
               </>
             )}
             {selectedExercises.map((exercise) => (
@@ -195,14 +188,13 @@ function Muscles(props) {
                   <InputGroup className="mb-3">
                     <Form.Control
                       className="input"
-                      raf
                       placeholder="Name"
                       aria-label="Workout Name"
                       aria-describedby="basic-addon2"
                       value={workoutName}
                       onChange={handleWorkoutNameChange}
                     />
-                    <Link to="/main">
+                    <Link to="/favorites">
                       <button
                         className="btn btn6 btn-outline-dark button btn-lg"
                         id="button-addon2"

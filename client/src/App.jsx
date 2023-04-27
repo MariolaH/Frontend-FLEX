@@ -1,5 +1,4 @@
 import Home from "./components/Home";
-import Login from "./components/Login";
 import Favorites from "./components/Favorites";
 import { Routes, Route } from "react-router-dom";
 import Muscles from "./components/muscles";
@@ -9,8 +8,6 @@ import View from "./components/View";
 
 function App() {
   return (
-    // <>
-    // <Nav />
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/home" element={<Home />} />
@@ -22,7 +19,6 @@ function App() {
       <Route path="/workout/edit/:workoutId?" element={<Muscles />} />
       <Route path="/workout/:id" element={<View />} />
     </Routes>
-    // </>
   );
 }
 

@@ -1,9 +1,8 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import AuthService from "../services/auth.service";
 import { useNavigate } from "react-router-dom";
 import { useGlobalState } from "../context/GlobalState";
 import jwtDecode from "jwt-decode";
-
 
 const Login = () => {
   let navigate = useNavigate();
@@ -18,21 +17,19 @@ const Login = () => {
 
     AuthService.login(username, password).then(async (resp) => {
       let data = jwtDecode(resp.access);
+
       await dispatch({
         currentUserToken: resp.access,
         currentUser: data,
-        
       });
       navigate("/main");
     });
-    
   };
 
   return (
     <div className="c-form">
       <form onSubmit={handleLogin}>
         <div className="login">
-          {/* <label htmlFor="username">Username:</label> */}
           <input
             placeholder="Username"
             variant="outline-secondary"
@@ -44,7 +41,6 @@ const Login = () => {
           />
         </div>
         <div className="login">
-          {/* <label htmlFor="pass">Password:</label> */}
           <input
             placeholder="Password"
             type="password"

@@ -12,9 +12,6 @@ function Nav2() {
   const [state] = useGlobalState();
   const [user, setUser] = useState([]);
 
-  console.log(state.currentUser?.user_id);
-  console.log(user);
-
   useEffect(() => {
     const getUsername = async () => {
       let config = {
@@ -38,7 +35,7 @@ function Nav2() {
   return (
     <>
       {[false].map((expand) => (
-        <Navbar key={expand} bg='dark' expand={expand} className="navTop mb-3">
+        <Navbar key={expand} bg="dark" expand={expand} className="navTop mb-3">
           <Container fluid>
             <h2 className="navHeader">FLEX</h2>
             <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />

@@ -40,7 +40,6 @@ const Register = () => {
     <div className="c-form">
       <form onSubmit={handleRegister}>
         <div className="login">
-          {/* <label htmlFor="username">Username:</label> */}
           <input
             placeholder="Username"
             type="text"
@@ -51,7 +50,6 @@ const Register = () => {
           />
         </div>
         <div className="login">
-          {/* <label htmlFor="email">Email:</label> */}
           <input
             placeholder="Email"
             type="text"
@@ -62,7 +60,6 @@ const Register = () => {
           />
         </div>
         <div className="login">
-          {/* <label htmlFor="pass">Password (8 characters minimum):</label> */}
           <input
             placeholder="Password"
             type="password"
@@ -74,7 +71,6 @@ const Register = () => {
           />
         </div>
         <div className="login">
-          {/* <label htmlFor="passConf">Confirm Password:</label> */}
           <input
             placeholder="Confirm Password"
             type="password"
@@ -86,7 +82,6 @@ const Register = () => {
           />
         </div>
         <div className="login">
-          {/* <label htmlFor="firstName">First Name:</label> */}
           <input
             placeholder="First Name"
             type="text"
@@ -97,7 +92,6 @@ const Register = () => {
           />
         </div>
         <div className="login">
-          {/* <label htmlFor="lastName">Last Name:</label> */}
           <input
             placeholder="Last Name"
             type="text"

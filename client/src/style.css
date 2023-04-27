@@ -70,7 +70,6 @@
   border-color: grey;
   font-family: monospace;
   min-width: 140px;
-  /* max-height: 63px; */
   min-height: 50px;
   vertical-align: middle;
   box-shadow: 5px 2px 2px rgb(241, 135, 6);
@@ -82,7 +81,6 @@
   border-color: grey;
   font-family: monospace;
   min-width: 140px;
-  /* max-height: 63px; */
   min-height: 50px;
   vertical-align: middle;
   padding-top: 25px;
@@ -99,7 +97,6 @@
   min-width: 140px;
   margin: 10px;
   min-height: 50px;
-  /* box-shadow: 10px 5px 5px grey; */
 }
 
 .btn5 {
@@ -117,8 +114,6 @@
   font-size: 15px;
   border-color: grey;
   font-family: monospace;
-  /* min-width: 140px; */
-  /* max-height: 63px; */
   box-shadow: 5px 2px 2px rgb(241, 135, 6);
 }
 
@@ -126,9 +121,6 @@
   color: rgb(241, 135, 6);
   font-size: 15px;
   font-family: monospace;
-  /* min-width: 140px; */
-  /* max-height: 63px; */
-  /* box-shadow: 5px 2px 2px rgb(241, 135, 6); */
 }
 
 .inputView {
@@ -143,10 +135,11 @@ h1 {
   color: whitesmoke;
   align-items: center !important;
   font-family: monospace;
+  font-size: 20px;
 }
 .h1View {
   padding-bottom: 20px;
-  font-family: monospace;
+  font-size: 45px;
 }
 
 li {
@@ -155,7 +148,6 @@ li {
 
 .mainHeader {
   color: rgb(241, 135, 6);
-  /* text-align: center; */
   font-size: 50px;
   font-family: monospace;
   padding-bottom: 10px;
@@ -175,13 +167,8 @@ li {
   justify-content: left;
 }
 
-/* .navTop{
-  background-color: rgb(6, 6, 6);
-} */
-
 .navSubheader {
   color: whitesmoke;
-  /* text-align: center; */
   font-size: 22px;
   font-family: monospace;
   padding-bottom: 30px;
@@ -204,12 +191,10 @@ li {
 }
 
 .selectMuscle {
-  /* padding-top: 10px; */
   padding-bottom: 20px;
 }
 
 .selectMuscleTop {
-  /* padding-top: 10px; */
   padding-bottom: 20px;
   font-size: 30px;
 }
@@ -227,10 +212,8 @@ li {
   padding-bottom: 30px;
 }
 
-/* .progress {
-  line-height: 1.25em;
-} */
-
-/* .exerciseName{
+.exerciseName {
   color: rgb(241, 135, 6);
-} */
+  font-family: monospace;
+  font-size: 17px;
+}
