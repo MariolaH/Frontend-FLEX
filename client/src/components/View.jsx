@@ -10,6 +10,7 @@ import Col from "react-bootstrap/Col";
 import { Link } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
+import * as moment from "moment";
 
 function View() {
   const { id } = useParams();
@@ -26,9 +27,12 @@ function View() {
       setWorkoutName(response.data.name);
       setExercises(response.data.exercises);
     };
-    setExercises([]); 
-    setWorkoutName("");
-    getWorkoutExercises();
+    // setExercises([]);
+    // setWorkoutName("");
+    // ADDED THE BELOW IF
+    // if (exercises.length === 0) {
+      getWorkoutExercises();
+    // }
   }, [id]);
 
   const handleSave = async (exercise) => {
@@ -43,18 +47,30 @@ function View() {
         workout: id,
       },
     };
-      let response = await request(config);
-      let newExercises = [...exercises];
-      let selectedExerciseIndex = exercises.findIndex(
-        (e) => e.id === exercise.id
-      );
+    let response = await request(config);
+    let newExercises = [...exercises];
+    let selectedExerciseIndex = exercises.findIndex(
+      (e) => e.id === exercise.id
+    );
+    // ADDED THE NEXT 7 LINES
+    // let existingRecord = newExercises[selectedExerciseIndex].recorded_data.find(
+    //   (r) =>
+    //     r.sets === response.data.sets ||
+    //     r.reps === response.data.reps ||
+    //     r.weight === response.data.weight
+    // );
+    // console.log(existingRecord);
+    // if (!existingRecord) {
       newExercises[selectedExerciseIndex] = {
         ...newExercises[selectedExerciseIndex],
-        recorded_data: [...newExercises[selectedExerciseIndex].recorded_data, response.data],
+        recorded_data: [
+          ...newExercises[selectedExerciseIndex].recorded_data,
+          response.data,
+        ],
       };
       setExercises(newExercises);
-    };
-
+    // }
+  };
 
   const handleInputChange = (event, exerciseId) => {
     console.log(event.target.name, event.target.value);
@@ -79,11 +95,12 @@ function View() {
 
               {exercises?.map((exercise) => (
                 <>
-                  <p key={exercise?.id}>{exercise.name}</p>
+                  <p className="exerciseName" key={exercise?.id}>{exercise.name}</p>
                   {exercise.recorded_data.map((e) => (
                     <p>
                       Set: {e.sets} Reps: {e.reps} Weight: {e.weight}{" "}
-                      {e.created_at}
+                      {/* {e.created_at} */}
+                      {moment(e.created_at).format("MMMM D, YYYY")}
                     </p>
                   ))}
 

@@ -21,7 +21,6 @@ function Muscles(props) {
   const [selectedExercises, setSelectedExercises] = useState([]);
   const [workoutName, setWorkoutName] = useState("");
 
-
   // Initial GET requests for Exercises/Muscle Groups
   useEffect(() => {
     const getMuscle = async () => {
@@ -148,7 +147,7 @@ function Muscles(props) {
             {"\u00A0"}
             {selectMuscle && (
               <Card border="none" className="row">
-                <Card.Body >
+                <Card.Body>
                   <h5 style={{ textAlign: "center" }}>SELECT AN EXERCISE</h5>
                 </Card.Body>
                 {"\u00A0"}
@@ -204,14 +203,13 @@ function Muscles(props) {
                       onChange={handleWorkoutNameChange}
                     />
                     <Link to="/main">
-
-                    <button
-                      className="btn btn6 btn-outline-dark button btn-lg"
-                      id="button-addon2"
-                      onClick={handleSaveWorkout}
-                    >
-                      SAVE
-                    </button>
+                      <button
+                        className="btn btn6 btn-outline-dark button btn-lg"
+                        id="button-addon2"
+                        onClick={handleSaveWorkout}
+                      >
+                        SAVE
+                      </button>
                     </Link>
                   </InputGroup>
                 </Card.Body>
