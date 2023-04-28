@@ -81,13 +81,12 @@ function View() {
               <h1 className="h1View">{workoutName}</h1>
 
               {exercises?.map((exercise) => (
-                <>
-                  <p className="exerciseName" key={exercise?.id}>
-                    {exercise.name}
-                  </p>
+                <div key={exercise?.id}>
+                  <p className="exerciseName">{exercise.name}</p>
+                  <br />
                   {exercise.recorded_data.map((e) => (
                     <p key={e.id}>
-                      Set: {e.sets} Reps: {e.reps} Weight: {e.weight}{" "}
+                      Set: {e.sets} Reps: {e.reps} Weight: {e.weight} lbs <br />
                       {moment(e.created_at).format("MMMM D, YYYY")}
                     </p>
                   ))}
@@ -135,7 +134,7 @@ function View() {
                   </InputGroup>
                   {"\u00A0"}
                   {"\u00A0"}
-                </>
+                </div>
               ))}
 
               {"\u00A0"}

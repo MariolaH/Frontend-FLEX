@@ -9,7 +9,7 @@ function Main() {
     <>
       <Container className="select" style={{ textAlign: "center" }}>
         <Row className="row">
-          <Col>
+          <Col sm={8}>
             <img
               className="img"
               style={{ alignSelf: "center" }}

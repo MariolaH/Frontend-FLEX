@@ -22,7 +22,7 @@ function Nav2() {
       setUser(response.data);
     };
     getUsername();
-  }, []);
+  }, [state.currentUser?.user_id]);
 
   let navigate = useNavigate();
 

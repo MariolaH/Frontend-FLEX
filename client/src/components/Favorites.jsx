@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import Nav from "./Nav";
-import { useGlobalState } from "../context/GlobalState";
 import request from "../services/api.request";
 import { Link } from "react-router-dom";
 import Card from "react-bootstrap/Card";

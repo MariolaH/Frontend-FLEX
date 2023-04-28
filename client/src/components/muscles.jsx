@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import request from "../services/api.request";
 import Nav from "./Nav";
@@ -18,6 +18,8 @@ function Muscles(props) {
   const [selectMuscle, setSelectMuscle] = useState("");
   const [selectedExercises, setSelectedExercises] = useState([]);
   const [workoutName, setWorkoutName] = useState("");
+
+  
 
   // Initial GET requests for Exercises/Muscle Groups
   useEffect(() => {
@@ -117,7 +119,7 @@ function Muscles(props) {
       <Toaster />
       <Container className="select rounded-2xl">
         <Row className="row">
-          <Col>
+          <Col sm={8}>
             <Card border="none" className="row">
               {"\u00A0"}
               <h2 className="selectMuscleTop" style={{ textAlign: "center" }}>
@@ -131,7 +133,7 @@ function Muscles(props) {
                 <button
                   className="btn muscleBtn btn-outline-dark button rounded-pill btn-lg mb-2 align-bottom"
                   key={musc.id}
-                  onClick={() => handleMuscleGroupClick(musc.name)}
+                  onClick={() =>  handleMuscleGroupClick(musc.name)}
                 >
                   {" "}
                   <p> {musc.name} </p>{" "}

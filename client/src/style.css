@@ -26,9 +26,15 @@
   }
 }
 
+/* .body {
+  zoom: 80%;
+} */
+
+
 .input {
   background-color: rgb(6, 6, 6);
   font-family: monospace;
+  color: whitesmoke;
 }
 
 .select {
