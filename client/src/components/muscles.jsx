@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState} from "react";
 import { Link } from "react-router-dom";
 import request from "../services/api.request";
 import Nav from "./Nav";
