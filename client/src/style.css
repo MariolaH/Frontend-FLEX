@@ -168,6 +168,11 @@ h1 {
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
 }
+
+.aboutWelcome {
+  font-size: 1.2rem;
+}
+
 .h1View {
   padding-bottom: 10px;
   padding-top: 20px;
@@ -180,8 +185,9 @@ li {
 
 .aboutLi {
   list-style: circle;
-  line-height: 1.75rem;
+  line-height: 1.8rem;
   color: whitesmoke;
+  font-size: 1.2rem;
 }
 
 .mainHeader {
