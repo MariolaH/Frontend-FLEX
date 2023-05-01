@@ -108,8 +108,7 @@ function View() {
                       //  properties are missing, then the entire element is skipped.
                       return (
                         e.sets &&
-                        e.reps &&
-                        e.weight && (
+                        e.reps && (
                           <p key={e.id} style={{ color }}>
                             Set: {e.sets} Reps: {e.reps} Weight: {e.weight} lbs{" "}
                             <br />
