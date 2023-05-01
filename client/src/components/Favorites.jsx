@@ -59,7 +59,7 @@ function Favorites() {
                     <Card.Body>
                       <div className="mb-3" style={{ textAlign: "center" }}>
                         <div className="me-auto p-2">
-                          <Link to={`/workout/${fav.id}`}>
+                          <Link to={`/workout/${fav.id}`} href="#top">
                             {" "}
                             <button className="btn btn3 btn-outline-dark button rounded-pill btn-sm">
                               {fav.name}

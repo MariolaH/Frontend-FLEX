@@ -79,103 +79,109 @@ function View() {
     <>
       <Nav />
       <Container className="select">
-        <Row className="row">
-          <Col xs={12} md={6}>
-            <Card border="none" className="row" style={{ textAlign: "center" }}>
-              <h1 className="h1View">{workoutName}</h1>
-              <hr />
+        <div id="top">
+          <Row className="row">
+            <Col xs={12} md={6}>
+              <Card
+                border="none"
+                className="row"
+                style={{ textAlign: "center" }}
+              >
+                <h1 className="h1View">{workoutName}</h1>
+                <hr />
 
-              {exercises?.map((exercise) => (
-                <div key={exercise?.id}>
-                  <p className="exerciseName">{exercise.name}</p>
-                  {/* In summary, this code loops through an array of exercises and
+                {exercises?.map((exercise) => (
+                  <div key={exercise?.id}>
+                    <p className="exerciseName">{exercise.name}</p>
+                    {/* In summary, this code loops through an array of exercises and
                   displays their names along with any recorded data that might
                   exist for each exercise. The recorded data is filtered so that
                   only elements that have values for the sets, reps, and weight
                   properties are displayed. */}
-                  {exercise.recorded_data.map((e, index) => {
-                    const date = moment(e.created_at);
-                    const day = date.date();
-                    const color = day % 2 === 0 ? "white" : "gray"; // Set the color based on the day
-                    // Within the map function, we first check whether e.sets, e.reps,
-                    // and e.weight properties of each element of the recorded_data array are
-                    // not null or undefined using a logical AND operator (&&). If any of these
-                    //  properties are missing, then the entire element is skipped.
-                    return (
-                      e.sets &&
-                      e.reps &&
-                      e.weight && (
-                        <p key={e.id} style={{ color }}>
-                          Set: {e.sets} Reps: {e.reps} Weight: {e.weight} lbs{" "}
-                          <br />
-                          {moment(e.created_at).format("MMMM D, YYYY")}
-                        </p>
-                      )
-                    );
-                  })}
-                  <InputGroup>
-                    <button
-                      key={exercise.id}
-                      onClick={() => {
-                        handleSave(exercise);
-                      }}
-                      className="btn btn7 btn-outline-light border-secordary"
-                    >
-                      +
-                    </button>
-                    <Form.Control
-                      className="set"
-                      size="sm"
-                      placeholder="sets"
-                      name="sets"
-                      type="number"
-                      inputmode="numeric"
-                      defaultValue={exercise.sets}
-                      onChange={(event) =>
-                        handleInputChange(event, exercise?.id)
-                      }
-                    />
-                    <Form.Control
-                      className="set"
-                      size="sm"
-                      placeholder="reps"
-                      name="reps"
-                      type="number"
-                      inputmode="numeric"
-                      defaultValue={exercise.reps}
-                      onChange={(event) =>
-                        handleInputChange(event, exercise?.id)
-                      }
-                    />
-                    <Form.Control
-                      className="set"
-                      size="sm"
-                      placeholder="lbs"
-                      name="weight"
-                      type="number"
-                      inputmode="numeric"
-                      defaultValue={exercise.weight}
-                      onChange={(event) =>
-                        handleInputChange(event, exercise?.id)
-                      }
-                    />
-                  </InputGroup>
-                  {"\u00A0"}
-                  {"\u00A0"}
-                  <hr />
-                </div>
-              ))}
+                    {exercise.recorded_data.map((e, index) => {
+                      const date = moment(e.created_at);
+                      const day = date.date();
+                      const color = day % 2 === 0 ? "white" : "gray"; // Set the color based on the day
+                      // Within the map function, we first check whether e.sets, e.reps,
+                      // and e.weight properties of each element of the recorded_data array are
+                      // not null or undefined using a logical AND operator (&&). If any of these
+                      //  properties are missing, then the entire element is skipped.
+                      return (
+                        e.sets &&
+                        e.reps &&
+                        e.weight && (
+                          <p key={e.id} style={{ color }}>
+                            Set: {e.sets} Reps: {e.reps} Weight: {e.weight} lbs{" "}
+                            <br />
+                            {moment(e.created_at).format("MMMM D, YYYY")}
+                          </p>
+                        )
+                      );
+                    })}
+                    <InputGroup>
+                      <button
+                        key={exercise.id}
+                        onClick={() => {
+                          handleSave(exercise);
+                        }}
+                        className="btn btn7 btn-outline-light border-secordary"
+                      >
+                        +
+                      </button>
+                      <Form.Control
+                        className="set"
+                        size="sm"
+                        placeholder="sets"
+                        name="sets"
+                        type="number"
+                        inputmode="numeric"
+                        defaultValue={exercise.sets}
+                        onChange={(event) =>
+                          handleInputChange(event, exercise?.id)
+                        }
+                      />
+                      <Form.Control
+                        className="set"
+                        size="sm"
+                        placeholder="reps"
+                        name="reps"
+                        type="number"
+                        inputmode="numeric"
+                        defaultValue={exercise.reps}
+                        onChange={(event) =>
+                          handleInputChange(event, exercise?.id)
+                        }
+                      />
+                      <Form.Control
+                        className="set"
+                        size="sm"
+                        placeholder="lbs"
+                        name="weight"
+                        type="number"
+                        inputmode="numeric"
+                        defaultValue={exercise.weight}
+                        onChange={(event) =>
+                          handleInputChange(event, exercise?.id)
+                        }
+                      />
+                    </InputGroup>
+                    {"\u00A0"}
+                    {"\u00A0"}
+                    <hr />
+                  </div>
+                ))}
 
-              {"\u00A0"}
-              {"\u00A0"}
-              <Link to="/favorites">
-                <button className="btn btn4 btn-outline-dark rounded-pill button btn-sm">
-                  FAVORITES
-                </button>
-              </Link>
-            </Card>
-          </Col>
-        </Row>
+                {"\u00A0"}
+                {"\u00A0"}
+                <Link to="/favorites">
+                  <button className="btn btn4 btn-outline-dark rounded-pill button btn-sm">
+                    FAVORITES
+                  </button>
+                </Link>
+              </Card>
+            </Col>
+          </Row>
+        </div>
       </Container>
     </>
   );

@@ -6,7 +6,10 @@ import Col from "react-bootstrap/Col";
 
 function Main() {
   return (
-    <Container className="select d-flex justify-content-center align-items-center">
+    <Container
+      className="select d-flex justify-content-center align-items-center"
+      style={{ position: "fixed" }}
+    >
       <Row className="row">
         <Col md={8} className="d-flex flex-column align-items-center">
           <img className="img" src="./image/newLogo.png" alt="Logo" />

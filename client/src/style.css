@@ -63,6 +63,7 @@
   justify-content: center;
   font-family: monospace;
   font-size: smaller;
+  
 }
 
 .row {
@@ -204,11 +205,11 @@ li {
   height: auto;
 }
 
-.imgNav {
+/* .imgNav {
   max-width: 20%;
   height: auto;
   padding-bottom: 15%;
-}
+} */
 
 .mainButtons {
   padding-top: 60px;

@@ -201,7 +201,7 @@ function Muscles(props) {
                   <InputGroup className="mb-3">
                     <Form.Control
                       className="input"
-                      placeholder="Name"
+                      placeholder="Name Workout"
                       aria-label="Workout Name"
                       aria-describedby="basic-addon2"
                       value={workoutName}
