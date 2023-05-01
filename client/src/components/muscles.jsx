@@ -124,7 +124,7 @@ function Muscles(props) {
         className="d-flex justify-content-center align-items-center selectMuscleTop"
         style={{ textAlign: "center" }}
       >
-        BUILD A WORKOUT
+        CREATE A WORKOUT
       </h2>
       <Container className="justify-content-center align-items-center select rounded-2xl">
         <Row className="row">

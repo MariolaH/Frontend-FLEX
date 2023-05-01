@@ -75,7 +75,7 @@ function Nav2() {
                     // href="/workout/edit"
                     href="exercises"
                   >
-                    NEW WORKOUT
+                    CREATE A WORKOUT
                   </Nav.Link>
                   <Nav.Link
                     className="btn btn2 btn-outline-dark rounded-pill button btn-lg mb-3"
@@ -93,7 +93,7 @@ function Nav2() {
                     className="btn btn2 btn-outline-dark button rounded-pill btn-lg"
                     onClick={handleLogout}
                   >
-                    LOG OUT
+                    LOGOUT
                   </button>
                 </Nav>
               </Offcanvas.Body>
