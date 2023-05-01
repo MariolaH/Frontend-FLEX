@@ -5,6 +5,7 @@ import Muscles from "./components/muscles";
 import Main from "./components/Main";
 import "./style/style.css";
 import View from "./components/View";
+import About from "./components/about";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       <Route path="/favorites" element={<Favorites />} />
       <Route path="/workout/edit/:workoutId?" element={<Muscles />} />
       <Route path="/workout/:id" element={<View />} />
+      <Route path="/about" element={<About />} />
     </Routes>
   );
 }
