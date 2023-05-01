@@ -21,7 +21,7 @@ function About() {
             <h1 className="mainHeader">FLEX</h1>
             <br />
             <p className="aboutWelcome">
-              Welcome to our app designed to assist you in creating customized
+              Welcome, FLEX was designed to assist you in creating customized
               workouts based on your desired muscle groups. With our
               user-friendly interface, you can effortlessly select a variety of
               exercises to incorporate into your workout, with the FLEXibility
