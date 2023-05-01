@@ -85,9 +85,9 @@ function Nav2() {
                   </Nav.Link>
                   <Nav.Link
                     className="btn btn2 btn-outline-dark rounded-pill button btn-lg mb-3"
-                    href="/instructions"
+                    href="/userguide"
                   >
-                    INSTRUCTIONS
+                    USER GUIDE
                   </Nav.Link>
                   <button
                     className="btn btn2 btn-outline-dark button rounded-pill btn-lg"

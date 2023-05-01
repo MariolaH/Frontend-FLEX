@@ -44,9 +44,9 @@ function About() {
               fitness goals. Thank you for choosing our app.
             </p>
             <br />
-            <Link to="/instructions">
+            <Link to="/userguide">
               <button className="btn btn4 btn-outline-dark rounded-pill button btn-sm">
-                INSTRUCTIONS
+                USER GUIDE
               </button>
             </Link>
             <br />

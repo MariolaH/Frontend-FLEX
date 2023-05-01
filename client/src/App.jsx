@@ -22,7 +22,7 @@ function App() {
       <Route path="/workout/edit/:workoutId?" element={<Muscles />} />
       <Route path="/workout/:id" element={<View />} />
       <Route path="/about" element={<About />} />
-      <Route path="/instructions" element={<Instructions />} />
+      <Route path="/userguide" element={<Instructions />} />
     </Routes>
   );
 }
