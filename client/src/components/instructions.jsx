@@ -8,9 +8,16 @@ function Instructions() {
   return (
     <>
       <Nav />
-      <Container className="select">
+      <Container className="select" style={{ textAlign: "center" }}>
         <Row className="row">
           <Col xs={12} md={6}>
+            <img
+              className="img"
+              style={{ alignSelf: "center" }}
+              src="./image/newLogo.png"
+              alt="Logo"
+            />
+            <h1 className="mainHeader">FLEX</h1>
             <br />
             <ul>
               <h3 className="about" style={{ textAlign: "center" }}>

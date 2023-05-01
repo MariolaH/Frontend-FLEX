@@ -12,6 +12,13 @@ function About() {
       <Container className="select" style={{ textAlign: "center" }}>
         <Row className="row">
           <Col xs={12} md={6}>
+            <img
+              className="img"
+              style={{ alignSelf: "center" }}
+              src="./image/newLogo.png"
+              alt="Logo"
+            />
+            <h1 className="mainHeader">FLEX</h1>
             <br />
             <p className="aboutWelcome">
               Welcome to our app designed to assist you in creating customized
