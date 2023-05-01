@@ -72,7 +72,8 @@ function Nav2() {
                   </Nav.Link>
                   <Nav.Link
                     className="btn btn2 btn-outline-dark button rounded-pill btn-lg mb-3"
-                    href="/workout/edit"
+                    // href="/workout/edit"
+                    href="exercises"
                   >
                     NEW WORKOUT
                   </Nav.Link>
