@@ -10,11 +10,32 @@
   .muscleBtn {
     font-size: 14px;
   }
+    .exerciseName {
+    font-size: 1.2rem;
+  }
+
+  .h1View {
+    font-size: 2.5rem;
+  }
+
+  .set {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .btn7 {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+
 }
 
 @media (min-width: 768px) {
   .select {
     padding: 30px;
+      max-width: 768px;
+    margin: 0 auto;
   }
 
 
@@ -235,4 +256,6 @@ li {
 
 .error {
   color: rgb(190, 39, 39);
+  font-size: 0.8em;
+  margin-top: 0.5em;
 }
