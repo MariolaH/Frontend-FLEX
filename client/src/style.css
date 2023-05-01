@@ -17,19 +17,16 @@
     padding: 30px;
   }
 
-  .selectMuscle {
-    font-size: 36px;
-  }
 
   .muscleBtn {
     font-size: 18px;
   }
+  .imgNav {
+    max-width: 50%;
+  }
+  
+
 }
-
-/* .body {
-  zoom: 80%;
-} */
-
 
 .input {
   background-color: rgb(6, 6, 6);
@@ -144,7 +141,8 @@ h1 {
   font-size: 20px;
 }
 .h1View {
-  padding-bottom: 20px;
+  padding-bottom: 10px;
+  padding-top: 20px;
   font-size: 45px;
 }
 
@@ -168,10 +166,9 @@ li {
   padding-left: 10px;
 }
 
-.imgNav {
+/* .imgNav {
   height: 50px;
-  justify-content: left;
-}
+} */
 
 .navSubheader {
   color: whitesmoke;
@@ -182,6 +179,14 @@ li {
 
 .img {
   padding-top: 30px;
+  max-width: 60%;
+  height: auto;
+}
+
+.imgNav {
+  max-width: 20%;
+  height: auto;
+  padding-bottom: 15%;
 }
 
 .mainButtons {
@@ -201,8 +206,12 @@ li {
 }
 
 .selectMuscleTop {
-  padding-bottom: 20px;
+  padding-top: 30px;
+  padding-bottom: 10px;
   font-size: 30px;
+  color: whitesmoke;
+  justify-content: center;
+  font-family: monospace;
 }
 
 .login {
@@ -222,4 +231,8 @@ li {
   color: rgb(241, 135, 6);
   font-family: monospace;
   font-size: 17px;
+}
+
+.error {
+  color: rgb(190, 39, 39);
 }

@@ -29,7 +29,7 @@ function Favorites() {
       url: `/workout/${favId}`,
       method: "delete",
     };
-    let response = await request(config);
+    await request(config);
     setFavorite(favorite.filter((item) => item.id !== favId));
     toast(" WORKOUT DELETED! ", {
       style: {
@@ -40,6 +40,7 @@ function Favorites() {
       },
     });
   };
+  
 
   return (
     <div>

@@ -22,6 +22,7 @@ const Login = () => {
         currentUserToken: resp.access,
         currentUser: data,
       });
+document.body.style.zoom = "initial";
       navigate("/main");
     });
   };
@@ -54,7 +55,7 @@ const Login = () => {
         <input
           className="btn btn4 btn-outline-dark button rounded-pill btn-lg"
           type="submit"
-          value="Sign in"
+          value="Login"
         />
       </form>
     </div>

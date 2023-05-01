@@ -6,38 +6,29 @@ import Col from "react-bootstrap/Col";
 
 function Main() {
   return (
-    <>
-      <Container className="select" style={{ textAlign: "center" }}>
-        <Row className="row">
-          <Col sm={8}>
-            <img
-              className="img"
-              style={{ alignSelf: "center" }}
-              src="./image/Logo.png"
-              alt="Logo"
-            />
-            <h2 className="mainHeader">FLEX</h2>
-            <Card border="none" className="row">
-              <Card.Body className="mainButtons">
-                <Link to="/exercises">
-                  <button className="btn btn4 btn-outline-dark button rounded-pill btn-lg">
-                    {" "}
-                    NEW WORKOUT{" "}
-                  </button>
-                </Link>
+    <Container className="select d-flex justify-content-center align-items-center">
+      <Row className="row">
+        <Col md={8} className="d-flex flex-column align-items-center">
+          <img className="img" src="./image/newLogo.png" alt="Logo" />
+          <h2 className="mainHeader mt-3">FLEX</h2>
+          <Card border="none" className="row">
+            <Card.Body className="mainButtons d-flex flex-row">
+              <Link to="/exercises" className="flex-fill me-2">
+                <button className="btn btn4 btn-outline-dark button rounded-pill btn-lg">
+                  NEW WORKOUT
+                </button>
+              </Link>
 
-                <Link to="/favorites">
-                  <button className="btn btn4 btn-outline-dark rounded-pill button btn-lg">
-                    {" "}
-                    FAVORITES{" "}
-                  </button>
-                </Link>
-              </Card.Body>
-            </Card>
-          </Col>
-        </Row>
-      </Container>
-    </>
+              <Link to="/favorites" className="flex-fill ms-2">
+                <button className="btn btn4 btn-outline-dark rounded-pill button btn-lg">
+                  FAVORITES
+                </button>
+              </Link>
+            </Card.Body>
+          </Card>
+        </Col>
+      </Row>
+    </Container>
   );
 }
 

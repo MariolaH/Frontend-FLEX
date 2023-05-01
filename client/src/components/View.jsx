@@ -79,18 +79,19 @@ function View() {
           <Col>
             <Card border="none" className="row" style={{ textAlign: "center" }}>
               <h1 className="h1View">{workoutName}</h1>
+              <hr />
 
               {exercises?.map((exercise) => (
                 <div key={exercise?.id}>
+                  {/* <br /> */}
                   <p className="exerciseName">{exercise.name}</p>
-                  <br />
+               
                   {exercise.recorded_data.map((e) => (
                     <p key={e.id}>
                       Set: {e.sets} Reps: {e.reps} Weight: {e.weight} lbs <br />
                       {moment(e.created_at).format("MMMM D, YYYY")}
                     </p>
                   ))}
-
                   <InputGroup>
                     <button
                       key={exercise.id}
@@ -98,7 +99,7 @@ function View() {
                         handleSave(exercise);
                       }}
                       className="btn btn7 btn-outline-light border-secordary"
-                    >
+                      >
                       +
                     </button>
                     <Form.Control
@@ -110,7 +111,7 @@ function View() {
                       onChange={(event) =>
                         handleInputChange(event, exercise?.id)
                       }
-                    />
+                      />
                     <Form.Control
                       className="set"
                       size="sm"
@@ -120,7 +121,7 @@ function View() {
                       onChange={(event) =>
                         handleInputChange(event, exercise?.id)
                       }
-                    />
+                      />
                     <Form.Control
                       className="set"
                       size="sm"
@@ -130,12 +131,14 @@ function View() {
                       onChange={(event) =>
                         handleInputChange(event, exercise?.id)
                       }
-                    />
+                      />
                   </InputGroup>
                   {"\u00A0"}
                   {"\u00A0"}
+                  <hr />
                 </div>
               ))}
+              
 
               {"\u00A0"}
               {"\u00A0"}
@@ -144,11 +147,13 @@ function View() {
                   FAVORITES
                 </button>
               </Link>
+              
             </Card>
           </Col>
-        </Row>
-      </Container>
-    </>
+          </Row>
+          </Container>
+          </>
+        
   );
 }
 

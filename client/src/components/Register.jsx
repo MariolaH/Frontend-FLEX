@@ -7,6 +7,8 @@ import jwtDecode from "jwt-decode";
 const Register = () => {
   let navigate = useNavigate();
   let [, dispatch] = useGlobalState();
+   const [passwordError, setPasswordError] = useState("");
+   const [PasswordConfError, setPasswordConfError] = useState("");
 
   const [user, setUser] = useState({
     username: "",
@@ -22,6 +24,16 @@ const Register = () => {
       ...user,
       [key]: value,
     });
+     if (key === "password" && value.length < 8) {
+       setPasswordError("Password must be 8 characters");
+  setPasswordConfError("");
+     } else if (key === "passwordConf" && value !== user.password) {
+      setPasswordError("");
+       setPasswordConfError("Password does not match");
+     } else {
+      setPasswordError("");
+      setPasswordConfError("");
+    }
   };
 
   const handleRegister = async (e) => {
@@ -66,9 +78,12 @@ const Register = () => {
             id="pass"
             name="password"
             minLength="8"
+            pattern=".{8,}"
             required
             onChange={(e) => handleChange("password", e.target.value)}
           />
+          <br />
+          {passwordError && <span className="error">{passwordError}</span>}
         </div>
         <div className="login">
           <input
@@ -77,9 +92,14 @@ const Register = () => {
             id="passConf"
             name="password"
             minLength="8"
+            pattern=".{8,}"
             required
             onChange={(e) => handleChange("passwordConf", e.target.value)}
           />
+          <br />
+          {PasswordConfError && (
+            <span className="error">{PasswordConfError}</span>
+          )}
         </div>
         <div className="login">
           <input
@@ -106,14 +126,16 @@ const Register = () => {
           className="btn btn4 btn-outline-dark button rounded-pill btn-lg"
           type="submit"
           value="Register"
-         disabled={(
+          disabled={
             user.password &&
             user.password.length >= 8 &&
             user.password === user.passwordConf &&
             user.firstName &&
             user.lastName &&
             user.email
-          ) ? false : true}
+              ? false
+              : true
+          }
         />
       </form>
     </div>

@@ -1,4 +1,4 @@
-import { useEffect, useState} from "react";
+import { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import request from "../services/api.request";
 import Nav from "./Nav";
@@ -18,8 +18,8 @@ function Muscles(props) {
   const [selectMuscle, setSelectMuscle] = useState("");
   const [selectedExercises, setSelectedExercises] = useState([]);
   const [workoutName, setWorkoutName] = useState("");
-
-  
+  const exercisesRef = useRef(null);
+  const [selectedMuscleName, setSelectedMuscleName] = useState("");
 
   // Initial GET requests for Exercises/Muscle Groups
   useEffect(() => {
@@ -89,7 +89,9 @@ function Muscles(props) {
   };
 
   const handleMuscleGroupClick = (muscle) => {
+    setSelectedMuscleName(muscle);
     setSelectMuscle(muscle);
+    exercisesRef.current?.scrollIntoView({ behavior: "instant" });
   };
 
   const handleExerciseClick = (exercise) => {
@@ -113,18 +115,22 @@ function Muscles(props) {
     setWorkoutName(event.target.value);
   };
 
+  
   return (
     <>
       <Nav />
       <Toaster />
-      <Container className="select rounded-2xl">
+      <h2
+        className="d-flex justify-content-center align-items-center selectMuscleTop"
+        style={{ textAlign: "center" }}
+      >
+        BUILD A WORKOUT
+      </h2>
+      <Container className="justify-content-center align-items-center select rounded-2xl">
         <Row className="row">
-          <Col sm={8}>
+          <Col md={8}>
             <Card border="none" className="row">
               {"\u00A0"}
-              <h2 className="selectMuscleTop" style={{ textAlign: "center" }}>
-                BUILD A WORKOUT
-              </h2>
               {"\u00A0"}
               <h5 className="selectMuscle" style={{ textAlign: "center" }}>
                 SELECT A MUSCLE
@@ -133,7 +139,7 @@ function Muscles(props) {
                 <button
                   className="btn muscleBtn btn-outline-dark button rounded-pill btn-lg mb-2 align-bottom"
                   key={musc.id}
-                  onClick={() =>  handleMuscleGroupClick(musc.name)}
+                  onClick={() => handleMuscleGroupClick(musc.name)}
                 >
                   {" "}
                   <p> {musc.name} </p>{" "}
@@ -142,9 +148,14 @@ function Muscles(props) {
             </Card>
             {"\u00A0"}
             {selectMuscle && (
-              <Card border="none" className="row">
+              <Card border="none" className="row" ref={exercisesRef}>
                 <Card.Body>
                   <h5 style={{ textAlign: "center" }}>SELECT AN EXERCISE</h5>
+                  {selectedMuscleName && (
+                    <p style={{ textAlign: "center" }}>
+                      Selected Muscle: {selectedMuscleName}
+                    </p>
+                  )}
                 </Card.Body>
                 {"\u00A0"}
                 {exercise

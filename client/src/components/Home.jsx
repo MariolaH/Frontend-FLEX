@@ -14,7 +14,7 @@ function Home() {
             <img
               className="img"
               style={{ alignSelf: "center" }}
-              src="./image/Logo.png"
+              src="./image/newLogo.png"
               alt="Logo"
             />
             <h2 className="mainHeader">FLEX</h2>
