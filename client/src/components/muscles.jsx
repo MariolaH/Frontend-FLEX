@@ -126,7 +126,7 @@ function Muscles(props) {
       >
         CREATE A WORKOUT
       </h2>
-      <Container className="justify-content-center align-items-center select rounded-2xl">
+      <Container className="justify-content-center align-items-center select rounded-2xl" >
         <Row className="row">
           <Col md={8}>
             <Card border="none" className="row">

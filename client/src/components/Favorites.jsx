@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Nav from "./Nav";
 import request from "../services/api.request";
 import { Link } from "react-router-dom";
-import Card from "react-bootstrap/Card";
+import Card from "react-bootstrap/esm/Card";
 import React from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";

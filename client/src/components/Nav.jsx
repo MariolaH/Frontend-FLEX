@@ -75,7 +75,7 @@ function Nav2() {
                     // href="/workout/edit"
                     href="exercises"
                   >
-                    CREATE A WORKOUT
+                    NEW WORKOUT
                   </Nav.Link>
                   <Nav.Link
                     className="btn btn2 btn-outline-dark rounded-pill button btn-lg mb-3"

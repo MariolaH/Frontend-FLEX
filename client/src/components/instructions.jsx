@@ -1,9 +1,9 @@
-// import Card from "react-bootstrap/Card";
 import Container from "react-bootstrap/Container";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/esm/Row";
 import Nav from "./Nav";
 import { Link } from "react-router-dom";
+import React from "react";
 
 function Instructions() {
   return (
@@ -89,7 +89,7 @@ function Instructions() {
             <br />
             <Link to="/exercises">
               <button className="btn btn4 btn-outline-dark rounded-pill button btn-sm">
-                CREATE A WORKOUT
+                NEW WORKOUT
               </button>
             </Link>
           </Col>
