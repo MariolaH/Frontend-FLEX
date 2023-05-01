@@ -70,7 +70,10 @@ function View() {
       [event.target.name]: event.target.value,
     };
     setExercises(newExercises);
+    
   };
+
+
 
   return (
     <>
@@ -90,22 +93,26 @@ function View() {
                   exist for each exercise. The recorded data is filtered so that
                   only elements that have values for the sets, reps, and weight
                   properties are displayed. */}
-                  {exercise.recorded_data.map(
-                    (e) =>
-                      // Within the map function, we first check whether e.sets, e.reps,
-                      // and e.weight properties of each element of the recorded_data array are
-                      // not null or undefined using a logical AND operator (&&). If any of these
-                      //  properties are missing, then the entire element is skipped.
+                  {exercise.recorded_data.map((e, index) => {
+                    const date = moment(e.created_at);
+                    const day = date.date();
+                    const color = day % 2 === 0 ? "white" : "gray"; // Set the color based on the day
+                    // Within the map function, we first check whether e.sets, e.reps,
+                    // and e.weight properties of each element of the recorded_data array are
+                    // not null or undefined using a logical AND operator (&&). If any of these
+                    //  properties are missing, then the entire element is skipped.
+                    return (
                       e.sets &&
                       e.reps &&
                       e.weight && (
-                        <p key={e.id}>
+                        <p key={e.id} style={{ color }}>
                           Set: {e.sets} Reps: {e.reps} Weight: {e.weight} lbs{" "}
                           <br />
                           {moment(e.created_at).format("MMMM D, YYYY")}
                         </p>
                       )
-                  )}
+                    );
+                  })}
                   <InputGroup>
                     <button
                       key={exercise.id}

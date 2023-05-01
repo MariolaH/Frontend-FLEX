@@ -171,12 +171,6 @@ function Nav2() {
                   </button>
                 </Nav>
               </Offcanvas.Body>
-              <img
-                className="imgNav"
-                style={{ display: "block", margin: "auto" }}
-                src="./image/Grey .png"
-                alt="Logo"
-              />
             </Navbar.Offcanvas>
           </Container>
         </Navbar>
