@@ -24,7 +24,7 @@ function About() {
               Welcome to our app designed to assist you in creating customized
               workouts based on your desired muscle groups. With our
               user-friendly interface, you can effortlessly select a variety of
-              exercises to incorporate into your workout, with the flexibility
+              exercises to incorporate into your workout, with the FLEXibility
               to choose as many muscle groups and exercises as desired.
             </p>
             <br />

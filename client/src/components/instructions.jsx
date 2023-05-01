@@ -3,6 +3,7 @@ import Container from "react-bootstrap/Container";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/esm/Row";
 import Nav from "./Nav";
+import { Link } from "react-router-dom";
 
 function Instructions() {
   return (
@@ -85,6 +86,12 @@ function Instructions() {
                 once it has been deleted.
               </li>
             </ul>
+            <br />
+            <Link to="/exercises">
+              <button className="btn btn4 btn-outline-dark rounded-pill button btn-sm">
+                START YOUR FIRST WORKOUT
+              </button>
+            </Link>
           </Col>
         </Row>
         <br />
