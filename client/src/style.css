@@ -165,6 +165,8 @@ h1 {
 
 .about {
   color: rgb(241, 135, 6);
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
 }
 .h1View {
   padding-bottom: 10px;

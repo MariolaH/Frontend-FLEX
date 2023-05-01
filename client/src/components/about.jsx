@@ -11,6 +11,29 @@ function About() {
       <Container className="select">
         <Row className="row">
           <Col xs={12} md={6}>
+            <br />
+            <p>
+              Welcome to our app designed to assist you in creating customized
+              workouts based on your desired muscle groups. With our
+              user-friendly interface, you can effortlessly select a variety of
+              exercises to incorporate into your workout, with the flexibility
+              to choose as many muscle groups and exercises as desired.
+            </p>
+            <p>
+              Once you have created your workout, you can save and access all
+              workouts within the favorites section for future reference. Our
+              app also allows for easy modification and deletion of your
+              workouts as your fitness journey progresses. Additionally, you
+              have the option to add specific sets, reps, and weights to each
+              exercise in your workout.
+            </p>
+            <p>
+              Our app keeps track of your past workout data, allowing you to
+              refer back to your previous sets, reps, and weights to monitor
+              your progress. We hope you enjoy using our app to achieve your
+              fitness goals. Thank you for choosing our app.
+            </p>
+
             <ul>
               <h5 className="about" style={{ textAlign: "center" }}>
                 Instructions for Creating and Modifying Workouts:
