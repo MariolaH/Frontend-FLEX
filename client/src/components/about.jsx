@@ -31,11 +31,13 @@ const handleClick = () => {
             <h1 className="mainHeader">FLEX</h1>
             <br />
             <p className="aboutWelcome">
-              Welcome, FLEX was designed to assist you in creating customized
-              workouts based on your desired muscle groups. With our
-              user-friendly interface, you can effortlessly select a variety of
-              exercises to incorporate into your workout, with the FLEXibility
-              to choose as many muscle groups and exercises as desired.
+              Welcome, <span style={{ color: "rgb(241, 135, 6)" }}>FLEX </span>
+              was designed to assist you in creating customized workouts based
+              on your desired muscle groups. With our user-friendly interface,
+              you can effortlessly select a variety of exercises to incorporate
+              into your workout, with the{" "}
+              <span style={{ color: "rgb(241, 135, 6)" }}>FLEX</span>
+              ibility to choose as many muscle groups and exercises as desired.
             </p>
             <br />
             <p className="aboutWelcome">
@@ -51,7 +53,8 @@ const handleClick = () => {
               Our app keeps track of your past workout data, allowing you to
               refer back to your previous sets, reps, and weights to monitor
               your progress. We hope you enjoy using our app to achieve your
-              fitness goals. Thank you for choosing our app.
+              fitness goals. Thank you for choosing{" "}
+              <span style={{ color: "rgb(241, 135, 6)" }}>FLEX</span>
             </p>
             <br />
             <Link to="/userguide">
