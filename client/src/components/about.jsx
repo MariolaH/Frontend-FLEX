@@ -41,7 +41,7 @@ const handleClick = () => {
             </p>
             <br />
             <p className="aboutWelcome">
-              Once you have created your workout, you can save and access all
+              Once you have created your workout, you can name, save and access all
               workouts within the favorites section for future reference. Our
               app also allows for easy modification and deletion of your
               workouts as your fitness journey progresses. Additionally, you
