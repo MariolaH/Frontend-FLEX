@@ -54,7 +54,7 @@ const handleClick = () => {
               refer back to your previous sets, reps, and weights to monitor
               your progress. We hope you enjoy using our app to achieve your
               fitness goals. Thank you for choosing{" "}
-              <span style={{ color: "rgb(241, 135, 6)" }}>FLEX</span>
+              <span style={{ color: "rgb(241, 135, 6)" }}>FLEX.</span>
             </p>
             <br />
             <Link to="/userguide">

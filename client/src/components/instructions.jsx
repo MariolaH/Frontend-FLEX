@@ -38,7 +38,7 @@ function Instructions() {
               <li className="aboutLi">
                 Give the workout a name that accurately reflects its contents.
               </li>
-              <li className="aboutLi">Name and save the completed workout.</li>
+              <li className="aboutLi">Save the completed workout.</li>
             </ul>
             <br />
             <hr />
