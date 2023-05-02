@@ -44,7 +44,7 @@ const Register = () => {
         currentUserToken: resp.access,
         currentUser: data,
       });
-      navigate("/exercises");
+      navigate("/about");
     });
   };
 
