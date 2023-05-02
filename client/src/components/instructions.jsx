@@ -40,7 +40,8 @@ function Instructions() {
               </li>
               <li className="aboutLi">Save the completed workout.</li>
             </ul>
-
+            <br />
+            <hr />
             <ul>
               <h3 className="about" style={{ textAlign: "center" }}>
                 Instructions for Modifying an Existing Workout:
@@ -58,6 +59,8 @@ function Instructions() {
               </li>
               <li className="aboutLi">Save the modified workout.</li>
             </ul>
+            <br />
+            <hr />
             <ul>
               <h3 className="about" style={{ textAlign: "center" }}>
                 Instructions for Inputting Sets, Reps, and Weight:
@@ -73,6 +76,8 @@ function Instructions() {
                 You may add as many sets, reps, and weight values as needed.
               </li>
             </ul>
+            <br />
+            <hr />
             <ul>
               <h3 className="about" style={{ textAlign: "center" }}>
                 Instructions for Deleting a Workout:
@@ -86,6 +91,7 @@ function Instructions() {
                 once it has been deleted.
               </li>
             </ul>
+            <br />
             <br />
             <Link to="/exercises">
               <button className="btn btn4 btn-outline-dark rounded-pill button btn-sm">
