@@ -32,8 +32,8 @@ function Instructions() {
                 workout.
               </li>
               <li className="aboutLi">
-                To remove an exercise from the workout, simply click on the
-                exercise and it will be deleted.
+                You can easily delete an exercise from the workout by clicking
+                on it within the selected exercises list.
               </li>
               <li className="aboutLi">
                 Give the workout a name that accurately reflects its contents.
@@ -51,11 +51,12 @@ function Instructions() {
                 wish to modify.
               </li>
               <li className="aboutLi">
-                Select the exercises you want to add or remove from the workout.
+                Select the exercises you want to add to the workout.
               </li>
               <li className="aboutLi">
-                To delete an exercise, click on the unwanted exercise to remove
-                it from the workout.
+                You can remove an exercise from the workout by clicking on the
+                respective exercise from the list of selected exercises,
+                effectively deleting it from the workout.
               </li>
               <li className="aboutLi">Save the modified workout.</li>
             </ul>
@@ -74,6 +75,13 @@ function Instructions() {
               </li>
               <li className="aboutLi">
                 You may add as many sets, reps, and weight values as needed.
+              </li>
+              <li className="aboutLi">
+                Please ensure that you enter values for both the set and rep
+                fields as they are mandatory. If any of these fields are left
+                empty, the inputted data will not be registered. However, note
+                that the weight field is optional and may be left empty if
+                desired.
               </li>
             </ul>
             <br />
