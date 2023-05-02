@@ -4,8 +4,18 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/esm/Row";
 import Nav from "./Nav";
 import { Link } from "react-router-dom";
+import { useRef } from "react"; 
 
 function About() {
+
+  const ref = useRef(null);
+
+const handleClick = () => {
+  ref.current?.scrollIntoView({ behavior: "smooth" });
+  window.scrollTo(0, 0);
+};
+
+
   return (
     <>
       <Nav />
@@ -45,7 +55,10 @@ function About() {
             </p>
             <br />
             <Link to="/userguide">
-              <button className="btn btn4 btn-outline-dark rounded-pill button btn-sm">
+              <button
+                onClick={handleClick}
+                className="btn btn4 btn-outline-dark rounded-pill button btn-sm"
+              >
                 USER GUIDE
               </button>
             </Link>
