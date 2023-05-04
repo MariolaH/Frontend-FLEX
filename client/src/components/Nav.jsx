@@ -7,6 +7,7 @@ import Offcanvas from "react-bootstrap/Offcanvas";
 import request from "../services/api.request";
 import authService from "../services/auth.service";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function Nav2() {
   const [state] = useGlobalState();
@@ -42,7 +43,11 @@ function Nav2() {
           className="navTop mb-3"
         >
           <Container fluid className="justify-content-between">
-            <h2 className="navHeader">FLEX</h2>
+            <Link to="/main">
+              <button className="btn button btn-outline-none btn-sm">
+                <h2 className="navHeader">FLEX</h2>
+              </button>
+            </Link>
             <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
             <Navbar.Offcanvas
               id={`offcanvasNavbar-expand-${expand}`}
