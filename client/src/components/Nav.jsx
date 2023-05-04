@@ -44,8 +44,10 @@ function Nav2() {
         >
           <Container fluid className="justify-content-between">
             <Link to="/main">
-              <button className="btn button btn-outline-none btn-sm">
-                <h2 className="navHeader">FLEX</h2>
+              <button className="btn btn-outline-seondary btn-sm">
+                <h2 className="navHeader">
+                  FLEX
+                </h2>
               </button>
             </Link>
             <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />

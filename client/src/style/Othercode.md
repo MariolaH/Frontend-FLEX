@@ -222,3 +222,28 @@ function View() {
 }
 
 export default View;
+
+
+
+ {exercise.recorded_data
+                      .filter((e) => e.sets && e.reps) // filter out incomplete records
+                      .sort((a, b) => a.created_at.localeCompare(b.created_at)) // sort records by date
+                      .map((e, index) => {
+                        const date = moment(e.created_at);
+                        const day = date.date();
+                        const color = day % 3 === 0 ? "white" : "gray"; // Set the color based on the day
+                        // Within the map function, we first check whether e.sets, e.reps,
+                        // and e.weight properties of each element of the recorded_data array are
+                        // not null or undefined using a logical AND operator (&&). If any of these
+                        //  properties are missing, then the entire element is skipped.
+                        return (
+                          e.sets &&
+                          e.reps && (
+                            <p key={e.id} style={{ color }}>
+                              Set: {e.sets} Reps: {e.reps} Weight: {e.weight}{" "}
+                              lbs <br />
+                              {moment(e.created_at).format("MMMM D, YYYY")}
+                            </p>
+                          )
+                        );
+                      })}

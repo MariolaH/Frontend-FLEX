@@ -99,7 +99,15 @@ function View() {
                   properties are displayed. */}
                     {exercise.recorded_data
                       .filter((e) => e.sets && e.reps) // filter out incomplete records
-                      .sort((a, b) => a.created_at.localeCompare(b.created_at)) // sort records by date
+                      // .sort((a, b) => a.created_at.localeCompare(b.created_at)) // sort records by date
+                      // .sort((a, b) => a.sets - b.sets)
+                      .sort(
+                        (a, b) =>
+                          a.created_at.localeCompare(b.created_at) ||
+                          a.sets - b.sets
+                      )
+                      // added this sort on may 4... check everyday if working
+
                       .map((e, index) => {
                         const date = moment(e.created_at);
                         const day = date.date();
@@ -135,7 +143,7 @@ function View() {
                         placeholder="Set"
                         name="sets"
                         type="number"
-                        inputmode="numeric"
+                        inputMode="numeric"
                         defaultValue={exercise.sets}
                         onChange={(event) =>
                           handleInputChange(event, exercise?.id)
@@ -147,7 +155,7 @@ function View() {
                         placeholder="Reps"
                         name="reps"
                         type="number"
-                        inputmode="numeric"
+                        inputMode="numeric"
                         defaultValue={exercise.reps}
                         onChange={(event) =>
                           handleInputChange(event, exercise?.id)
@@ -159,7 +167,7 @@ function View() {
                         placeholder="lbs"
                         name="weight"
                         type="number"
-                        inputmode="numeric"
+                        inputMode="numeric"
                         defaultValue={exercise.weight}
                         onChange={(event) =>
                           handleInputChange(event, exercise?.id)
