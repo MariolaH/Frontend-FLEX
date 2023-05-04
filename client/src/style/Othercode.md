@@ -1,4 +1,36 @@
-import { useEffect, useState } from "react";
+ {exercises?.map((exercise) => (
+                  <div key={exercise?.id}>
+                    <p className="exerciseName">{exercise.name}</p>
+                    {/* In summary, this code loops through an array of exercises and
+                  displays their names along with any recorded data that might
+                  exist for each exercise. The recorded data is filtered so that
+                  only elements that have values for the sets, reps, and weight
+                  properties are displayed. */}
+                    {exercise.recorded_data.map((e, index) => {
+                      const date = moment(e.created_at);
+                      const day = date.date();
+                      const color = day % 2 === 0 ? "white" : "gray"; // Set the color based on the day
+                      // Within the map function, we first check whether e.sets, e.reps,
+                      // and e.weight properties of each element of the recorded_data array are
+                      // not null or undefined using a logical AND operator (&&). If any of these
+                      //  properties are missing, then the entire element is skipped.
+                      return (
+                        e.sets &&
+                        e.reps && (
+                          <p key={e.id} style={{ color }}>
+                            Set: {e.sets} Reps: {e.reps} Weight: {e.weight} lbs{" "}
+                            <br />
+                            {moment(e.created_at).format("MMMM D, YYYY")}
+                          </p>
+                        )
+                      );
+                    })}
+
+
+
+
+
+                    import { useEffect, useState } from "react";
 import Nav from "./Nav";
 import { useParams } from "react-router-dom";
 import request from "../services/api.request";
@@ -16,6 +48,8 @@ function View() {
   const { id } = useParams();
   const [exercises, setExercises] = useState([]);
   const [workoutName, setWorkoutName] = useState("");
+  const [colorIndex, setColorIndex] = useState(0);
+  const colors = ["gray", "white"]; // Add more colors if desired
 
   useEffect(() => {
     const getWorkoutExercises = async () => {
@@ -51,16 +85,15 @@ function View() {
       ...newExercises[selectedExerciseIndex],
       recorded_data: [
         ...newExercises[selectedExerciseIndex].recorded_data,
-        response.data,
+        { ...response.data, color: colors[colorIndex] },
       ],
     };
     setExercises(newExercises);
     document.getElementsByName("sets")[selectedExerciseIndex].value = "";
     document.getElementsByName("reps")[selectedExerciseIndex].value = "";
     document.getElementsByName("weight")[selectedExerciseIndex].value = "";
+    setColorIndex((colorIndex + 1) % colors.length); // Rotate the color index
   };
-
-  
 
   const handleInputChange = (event, exerciseId) => {
     let newExercises = [...exercises];
@@ -72,7 +105,6 @@ function View() {
     };
     setExercises(newExercises);
   };
-  
 
   return (
     <>
@@ -89,7 +121,7 @@ function View() {
                 <h1 className="h1View">{workoutName}</h1>
                 <hr />
 
-                {exercises?.map((exercise) => (
+                {exercises?.map((exercise, index) => (
                   <div key={exercise?.id}>
                     <p className="exerciseName">{exercise.name}</p>
                     {/* In summary, this code loops through an array of exercises and
@@ -98,12 +130,12 @@ function View() {
                   only elements that have values for the sets, reps, and weight
                   properties are displayed. */}
                     {exercise.recorded_data
-                      .filter((e) => e.sets && e.reps) // filter out incomplete records
+                      .filter((e) => e.sets && e.reps && e.weight) // filter out incomplete records
                       .sort((a, b) => a.created_at.localeCompare(b.created_at)) // sort records by date
-                      .map((e, index) => {
-                        const date = moment(e.created_at);
-                        const day = date.date();
-                        const color = day % 3 === 0 ? "white" : "gray"; // Set the color based on the day
+                      .map((e) => {
+                        const dayOfWeek = moment(e.created_at).day();
+                        const color =
+                          colors[(colorIndex + dayOfWeek) % colors.length]; // Determine the color based on the day of the week
                         // Within the map function, we first check whether e.sets, e.reps,
                         // and e.weight properties of each element of the recorded_data array are
                         // not null or undefined using a logical AND operator (&&). If any of these
@@ -119,6 +151,7 @@ function View() {
                           )
                         );
                       })}
+
                     <InputGroup>
                       <button
                         key={exercise.id}
