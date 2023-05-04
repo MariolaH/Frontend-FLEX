@@ -130,7 +130,7 @@ function View() {
                       <Form.Control
                         className="set"
                         size="sm"
-                        placeholder="sets"
+                        placeholder="Set"
                         name="sets"
                         type="number"
                         inputmode="numeric"
@@ -142,7 +142,7 @@ function View() {
                       <Form.Control
                         className="set"
                         size="sm"
-                        placeholder="reps"
+                        placeholder="Reps"
                         name="reps"
                         type="number"
                         inputmode="numeric"
