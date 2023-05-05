@@ -111,7 +111,7 @@ function View() {
                       .map((e, index) => {
                         const date = moment(e.created_at);
                         const day = date.date();
-                        const color = day % 3 === 0 ? "white" : "gray"; // Set the color based on the day
+                        const color = day % 2 === 0 ? "white" : "gray"; // Set the color based on the day
                         // Within the map function, we first check whether e.sets, e.reps,
                         // and e.weight properties of each element of the recorded_data array are
                         // not null or undefined using a logical AND operator (&&). If any of these
