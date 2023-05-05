@@ -55,14 +55,11 @@ function View() {
       ],
     };
     setExercises(newExercises);
-  //   document.getElementsByName("sets")[selectedExerciseIndex].value = "";
-  //   document.getElementsByName("reps")[selectedExerciseIndex].value = "";
-  //   document.getElementsByName("weight")[selectedExerciseIndex].value = "";
-  // };
-    document.getElementsByName("sets")[selectedExerciseIndex].value = 0;
-  document.getElementsByName("reps")[selectedExerciseIndex].value = 0;
-  document.getElementsByName("weight")[selectedExerciseIndex].value = 0;
-};
+    document.getElementsByName("sets")[selectedExerciseIndex].value = "";
+    document.getElementsByName("reps")[selectedExerciseIndex].value = "";
+    document.getElementsByName("weight")[selectedExerciseIndex].value = "";
+  };
+  
 
   
 

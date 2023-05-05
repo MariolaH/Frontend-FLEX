@@ -94,15 +94,30 @@ function Muscles(props) {
     exercisesRef.current?.scrollIntoView({ behavior: "instant" });
   };
 
+  // const handleExerciseClick = (exercise) => {
+  //   setSelectedExercises((prevExercises) => [
+  //     ...prevExercises,
+  //     {
+  //       name: exercise.name,
+  //       id: exercise.id,
+  //       muscles: [{ name: selectMuscle }],
+  //     },
+  //   ]);
+  // };
+
+
   const handleExerciseClick = (exercise) => {
-    setSelectedExercises((prevExercises) => [
-      ...prevExercises,
-      {
-        name: exercise.name,
-        id: exercise.id,
-        muscles: [{ name: selectMuscle }],
-      },
-    ]);
+    const exerciseExists = selectedExercises.some((e) => e.id === exercise.id);
+    if (!exerciseExists) {
+      setSelectedExercises((prevExercises) => [
+        ...prevExercises,
+        {
+          name: exercise.name,
+          id: exercise.id,
+          muscles: [{ name: selectMuscle }],
+        },
+      ]);
+    }
   };
 
   const RemoveExercise = (remove) => {
