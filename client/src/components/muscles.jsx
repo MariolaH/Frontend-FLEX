@@ -29,7 +29,8 @@ function Muscles(props) {
         method: "get",
       };
       let response = await request(config);
-      setMuscle(response.data);
+      // setMuscle(response.data);
+      setMuscle(response.data.sort((a, b) => a.name.localeCompare(b.name)));
     };
     getMuscle();
 
@@ -39,7 +40,8 @@ function Muscles(props) {
         method: "get",
       };
       let response = await request(config);
-      setExercise(response.data);
+      // setExercise(response.data);
+      setExercise(response.data.sort((a, b) => a.name.localeCompare(b.name)));
     };
     getExercise();
   }, []);
